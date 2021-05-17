@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@drawable/common_back">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <include
+            layout="@layout/kitchenuser_view_toolbar"
+            android:id="@+id/include_kitchen_details_view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/include_kitchen_details_view">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/waiter_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="7dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/txt_kitchenId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/kitchen_user_id"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="50dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/txt_kitchenName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/name"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="90dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/txt_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/phone_no"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="130dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+                        <TextView
+                            android:id="@+id/txt_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/address"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="170dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/txt_mailId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/email_id"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="210dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/footerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/btn_remove"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/remove"
+                            tools:ignore="ButtonStyle" />
+                        <Button
+                            android:id="@+id/btn_block"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/block"
+                            tools:ignore="ButtonStyle" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/footerView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        tools:ignore="InefficientWeight">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <Button
+                                android:id="@+id/btn_unblock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="20dp"
+                                android:text="@string/unblock" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white">
+
+        <include
+            layout="@layout/navi_drawer_admin"/>
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

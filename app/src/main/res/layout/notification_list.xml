@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notification_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="7sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="10sp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/prof_icon" />
+
+        <TextView
+            android:id="@+id/txt_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification 1"
+            android:layout_marginLeft="100sp"
+            android:textSize="19sp"
+            android:layout_marginTop="15sp"/>
+        <TextView
+            android:id="@+id/txt_msg"
+            android:layout_below="@+id/txt_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="some one message"
+            android:textStyle="italic"
+            android:layout_marginLeft="100sp"
+            android:textSize="18sp"
+            android:layout_marginStart="100sp" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:30"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20sp"
+            android:textSize="12sp"
+            android:layout_marginTop="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20sp" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20sp"
+            android:layout_marginTop="60sp"
+            android:src="@drawable/star"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20sp" />
+
+
+    </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="20sp"
+    android:gravity="center_horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="55sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5sp"
+        app:cardCornerRadius="7sp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp"
+                android:onClick="ClickMenu"
+                android:src="@drawable/menu"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/log_logo"
+                android:layout_width="60sp"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                android:layout_marginLeft="340sp"
+                android:layout_marginRight="10sp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+
+                app:lottie_fileName="notification.json"
+                app:lottie_loop="true"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</LinearLayout>

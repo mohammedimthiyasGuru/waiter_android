@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NotificationDetail"
+    android:background="@drawable/common_back"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/back_icon"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                app:lottie_autoPlay="true"
+                android:layout_marginTop="10dp"
+                app:lottie_colorFilter="@color/purple_500"
+                app:lottie_fileName="back-icon.json"
+                app:lottie_loop="true"/>
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="60dp"
+                android:text="back"
+                android:layout_marginStart="60dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="60sp"
+                android:layout_height="40sp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/prof_icon"
+                app:civ_border_color="#000080"
+                app:civ_border_overlay="true"
+                app:civ_border_width="2dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_below="@+id/linear1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="120sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:cardCornerRadius="10sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20sp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_no1"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                       android:layout_centerVertical="true"
+                        android:src="@drawable/number1" />
+
+                    <TextView
+                        android:id="@+id/txt_tablename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_marginLeft="130dp"
+                        android:textSize="20sp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="130dp" />
+                    <TextView
+                        android:id="@+id/txt_taken"
+                        android:layout_below="@+id/txt_tablename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textStyle="italic"
+                        android:layout_marginLeft="130dp"
+                        android:textSize="18sp"
+                        android:layout_marginStart="130dp" />
+
+                    <TextView
+                        android:id="@+id/txt_date"
+                        android:layout_below="@+id/txt_taken"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_marginLeft="130dp"
+                        android:textSize="14sp"
+                        android:layout_marginStart="130dp" />
+                    <TextView
+                        android:id="@+id/txt_status"
+                        android:layout_below="@+id/txt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_marginLeft="130dp"
+                        android:textSize="14sp"
+                        android:layout_marginStart="130dp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_below="@id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:background="@drawable/textview_border">
+
+                <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="Item Name"
+                    android:layout_marginStart="10dp" />
+                <TextView
+                    android:id="@+id/item_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                   android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:text="3"
+                    android:layout_marginStart="130dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/textview_border"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginEnd="10dp"
+                    tools:ignore="RtlCompat">
+
+                    <Spinner
+                        android:id="@+id/blood_spin"
+                        android:layout_width="match_parent"
+                        android:layout_height="40sp"
+                        android:layout_marginLeft="1sp"
+                        android:layout_marginRight="1sp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="bottom|right"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="30sp"
+                android:src="@drawable/check"
+                app:maxImageSize="30sp"
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription"
+                android:layout_marginEnd="20dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

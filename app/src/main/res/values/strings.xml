@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Waiter</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="order_history">Order History</string>
+    <string name="admin_request">Admin Request</string>
+    <string name="sos">SOS</string>
+    <string name="notification">Notification</string>
+    <string name="logout">Logout</string>
+    <string name="admin">Admin</string>
+    <string name="waiter_details">Waiter Details</string>
+    <string name="kitchen_user_details">Kitchen User Details</string>
+    <string name="order_details">Order Details</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="table_details">Table Details</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="waiter">Waiter</string>
+    <string name="request">Request</string>
+    <string name="_012345">012345</string>
+    <string name="waiter_id">Waiter Id :</string>
+    <string name="block">Block</string>
+    <string name="remove">Remove</string>
+    <string name="email_id">Email Id :</string>
+    <string name="address">Address :</string>
+    <string name="phone_no">Phone No :</string>
+    <string name="name">Name :</string>
+    <string name="kitchen_user_detail">Kitchen User Detail</string>
+    <string name="kitchen_user_id">kitchen User Id :</string>
+    <string name="unblock">UnBlock</string>
+    <string name="transactions">Transactions</string>
+    <string name="filter">Filter</string>
+    <string name="back">back</string>
+    <string name="no_data_found">No data found</string>
+    <string name="list_1">List 1</string>
+    <string name="_1">1</string>
+    <string name="item_detail">ITEM DETAIL</string>
+    <string name="norecordsfound">No Records Found</string>
+</resources>

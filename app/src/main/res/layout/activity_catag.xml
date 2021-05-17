@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CatagActivity"
+    android:background="@drawable/common_back"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/back_icon"
+            android:layout_width="50sp"
+            android:layout_height="60sp"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            app:lottie_colorFilter="#FDFBFB"
+            app:lottie_fileName="back-icon.json"
+            app:lottie_loop="true"/>
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="50dp"
+            android:textColor="@color/white"
+            android:text="@string/back"
+            tools:ignore="RelativeOverlap" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:src="@drawable/prof_icon"
+                app:civ_border_color="#000080"
+                app:civ_border_overlay="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                tools:ignore="ObsoleteLayoutParam" />
+</RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_below="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#F9F9FA">
+
+      <SearchView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="5sp"
+          android:queryHint="Search here"
+         android:iconifiedByDefault="false"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        tools:ignore="DisableBaselineAlignment">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#130C73"
+            tools:ignore="InefficientWeight,UselessParent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_categorylist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"/>
+            <TextView
+                android:layout_marginTop="40dp"
+                android:id="@+id/txt_no_categorylist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="@string/no_data_found"
+                android:visibility="gone"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#61636E"
+            tools:ignore="UselessParent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/check"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                app:maxImageSize="30dp"
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+        </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/purple_700"
+        app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+
+</RelativeLayout>

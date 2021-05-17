@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.ordertakingapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OrderTakingApp"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute">
+        <activity android:name=".activity.PaymentDetails"></activity>
+        <activity android:name=".activity.OrderDetails" />
+        <activity android:name=".activity.KitchenUserDetailView" />
+        <activity android:name=".activity.KitchenUserDetails" />
+        <activity android:name=".activity.WaiterDetailsView" />
+        <activity android:name=".activity.WaiterDetails" />
+        <activity android:name=".activity.NotificationDetail" />
+        <activity android:name=".activity.Notification" />
+        <activity android:name=".activity.TableItemList" />
+        <activity android:name=".activity.KitchenTakingActivity" />
+        <activity android:name=".activity.CatagActivity" />
+        <activity android:name=".activity.WaiterActivity" />
+        <activity android:name=".activity.DashBoardActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
