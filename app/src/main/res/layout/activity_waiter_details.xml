@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,6 +16,27 @@
         android:orientation="vertical"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="15dp">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:indicatorColor="@color/purple_700"
+            app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+        <TextView
+            android:id="@+id/txt_no_waiterlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/no_data_found"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <include
             layout="@layout/waiter_toolbar"

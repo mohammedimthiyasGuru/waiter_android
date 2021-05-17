@@ -2,9 +2,11 @@ package com.example.ordertakingapp.api;
 
 import androidx.arch.core.util.Function;
 
+import com.example.ordertakingapp.request.BlockUnBlockWaiterRequest;
 import com.example.ordertakingapp.request.CategoryItemListRequest;
 import com.example.ordertakingapp.request.CreateOrderRequest;
 import com.example.ordertakingapp.request.DashboardRequest;
+import com.example.ordertakingapp.request.DeleteWaiterRequest;
 import com.example.ordertakingapp.request.FetchChiefListRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
 import com.example.ordertakingapp.request.ItemAddOrRemoveRequest;
@@ -12,11 +14,13 @@ import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.OverViewItemRequest;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
+import com.example.ordertakingapp.response.BlockUnBlockWaiterResponse;
 import com.example.ordertakingapp.response.CategoryItemListResponse;
 import com.example.ordertakingapp.response.CategoryListResponse;
 import com.example.ordertakingapp.response.CreateOrderResponse;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.request.LoginRequest;
+import com.example.ordertakingapp.response.DeleteWaiterResponse;
 import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
@@ -85,6 +89,14 @@ public interface RestApiInterface {
     /*Get Chef Details*/
     @POST("waiter_chef/getlist_id")
     Call<FetchChiefListResponse> getcheflistResponseCall(@Header("Content-Type") String type, @Body FetchChiefListRequest fetchChiefListRequest);
+
+    /*Get Chef Details*/
+    @POST("waiter_waiter/edit")
+    Call<BlockUnBlockWaiterResponse> blockorunblockwaiterResponseCall(@Header("Content-Type") String type, @Body BlockUnBlockWaiterRequest blockUnBlockWaiterRequest);
+
+    /*Get Chef Details*/
+    @POST("waiter_waiter/delete")
+    Call<DeleteWaiterResponse> deletewaiterResponseCall(@Header("Content-Type") String type, @Body DeleteWaiterRequest deleteWaiterRequest);
 
 
 }
