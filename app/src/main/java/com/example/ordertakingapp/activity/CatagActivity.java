@@ -183,6 +183,8 @@ public class CatagActivity extends AppCompatActivity implements View.OnClickList
 
                             dataBeanList = response.body().getData();
 
+                            itemDetailBeanList.clear();
+
                             for(int i=0;i<dataBeanList.size();i++){
 
                                 CreateOrderRequest.ItemDetailBean itemDetailBean = new CreateOrderRequest.ItemDetailBean();

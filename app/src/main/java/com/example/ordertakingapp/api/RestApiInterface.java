@@ -2,9 +2,12 @@ package com.example.ordertakingapp.api;
 
 import androidx.arch.core.util.Function;
 
+import com.example.ordertakingapp.request.BlockUnBlockChefRequest;
+import com.example.ordertakingapp.request.BlockUnBlockWaiterRequest;
 import com.example.ordertakingapp.request.CategoryItemListRequest;
 import com.example.ordertakingapp.request.CreateOrderRequest;
 import com.example.ordertakingapp.request.DashboardRequest;
+import com.example.ordertakingapp.request.DeleteWaiterRequest;
 import com.example.ordertakingapp.request.FetchChiefListRequest;
 import com.example.ordertakingapp.request.FetchOrderByIdRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
@@ -14,11 +17,14 @@ import com.example.ordertakingapp.request.OverViewItemRequest;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
+import com.example.ordertakingapp.response.BlockUnBlockChefResponse;
+import com.example.ordertakingapp.response.BlockUnBlockWaiterResponse;
 import com.example.ordertakingapp.response.CategoryItemListResponse;
 import com.example.ordertakingapp.response.CategoryListResponse;
 import com.example.ordertakingapp.response.CreateOrderResponse;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.request.LoginRequest;
+import com.example.ordertakingapp.response.DeleteWaiterResponse;
 import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
@@ -89,6 +95,22 @@ public interface RestApiInterface {
     /*Get Chef Details*/
     @POST("waiter_chef/getlist_id")
     Call<FetchChiefListResponse> getcheflistResponseCall(@Header("Content-Type") String type, @Body FetchChiefListRequest fetchChiefListRequest);
+
+    /*Edit waiter Details*/
+    @POST("waiter_waiter/edit")
+    Call<BlockUnBlockWaiterResponse> blockorunblockwaiterResponseCall(@Header("Content-Type") String type, @Body BlockUnBlockWaiterRequest blockUnBlockWaiterRequest);
+
+    /*Delete waiter Details*/
+    @POST("waiter_waiter/delete")
+    Call<DeleteWaiterResponse> deletewaiterResponseCall(@Header("Content-Type") String type, @Body DeleteWaiterRequest deleteWaiterRequest);
+
+    /*Edit chef Details*/
+    @POST("waiter_chef/edit")
+    Call<BlockUnBlockChefResponse> blockorunblockchiefResponseCall(@Header("Content-Type") String type, @Body BlockUnBlockChefRequest blockUnBlockChefRequest);
+
+    /*Delete chef Details*/
+    @POST("waiter_chef/delete")
+    Call<DeleteWaiterResponse> deletechefResponseCall(@Header("Content-Type") String type, @Body DeleteWaiterRequest deleteWaiterRequest);
 
 
     /*update the status*/

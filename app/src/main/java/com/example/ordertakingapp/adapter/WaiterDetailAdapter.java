@@ -13,13 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
-import com.example.ordertakingapp.Pojo_WaiterDetail;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.activity.WaiterDetailsView;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.google.gson.Gson;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 
 public class WaiterDetailAdapter extends  RecyclerView.Adapter<WaiterDetailAdapter.WaiterDetailHolder> {
@@ -65,18 +67,36 @@ public class WaiterDetailAdapter extends  RecyclerView.Adapter<WaiterDetailAdapt
         }
 
 
-        if (dataBean.getWaiter_name()!= null&&!dataBean.getWaiter_name().isEmpty()) {
+        if (dataBean.getCreatedAt()!= null&&!dataBean.getCreatedAt().isEmpty()) {
 
-            holder.txt_waiterName.setText(""+dataBean.getWaiter_name());
+            String date = getDate(dataBean.getCreatedAt());
+
+            holder.txt_date.setText(""+ date.substring(0, date.indexOf(' ')));
+
+            holder.txt_time.setText( ""+date.substring(date.indexOf(' ') + 1));
+
         }
 
 
-        holder.txt_viewMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), WaiterDetailsView.class);
-                view.getContext().startActivity(intent);
-            }
+        holder.txt_viewMore.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, WaiterDetailsView.class);
+
+            intent.putExtra("_id",dataBean.get_id());
+
+            intent.putExtra("waiter_id",dataBean.getWaiter_number());
+
+            intent.putExtra("waiter_name",dataBean.getWaiter_name());
+
+            intent.putExtra("waiter_number",dataBean.getWaiter_emergency_no());
+
+            intent.putExtra("waiter_addr",dataBean.getWaiter_address());
+
+            intent.putExtra("waiter_emailid",dataBean.getWaiter_emailid());
+
+            intent.putExtra("status",dataBean.getWaiter_status());
+
+            context.startActivity(intent);
         });
 
     }
@@ -87,7 +107,7 @@ public class WaiterDetailAdapter extends  RecyclerView.Adapter<WaiterDetailAdapt
         return waiterDetailsList.size();
     }
 
-    public static class  WaiterDetailHolder extends RecyclerView.ViewHolder {
+    public static class  WaiterDetailHolder extends ViewHolder {
         TextView txt_waiterNo,txt_waiterName,txt_orderCount,txt_date,txt_time,txt_viewMore;
         ImageView proImg;
 
@@ -103,5 +123,28 @@ public class WaiterDetailAdapter extends  RecyclerView.Adapter<WaiterDetailAdapt
             proImg = itemView.findViewById(R.id.profile_image);
 
         }
+    }
+
+    private String getDate(String ourDate)
+    {
+        try
+        {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date value = formatter.parse(ourDate);
+
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("MM-dd-yyyy HH:mm"); //this format changeable
+            dateFormatter.setTimeZone(TimeZone.getDefault());
+            ourDate = dateFormatter.format(value);
+
+            Log.w("ourDate", ourDate);
+        }
+        catch (Exception e)
+        {
+            Log.w("Exception", ""+e.getMessage());
+
+            ourDate = "00-00-0000 00:00";
+        }
+        return ourDate;
     }
 }

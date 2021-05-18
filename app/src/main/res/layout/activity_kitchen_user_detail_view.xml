@@ -16,6 +16,15 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp">
 
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:indicatorColor="@color/purple_700"
+            app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+
         <include
             layout="@layout/kitchenuser_view_toolbar"
             android:id="@+id/include_kitchen_details_view"/>
@@ -31,10 +40,11 @@
                 android:id="@+id/waiter_card"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="7dp"
-                android:layout_marginBottom="20dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp">
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="7dp">
+
                 <LinearLayout
                     android:id="@+id/linear1"
                     android:layout_width="match_parent"
@@ -51,50 +61,51 @@
                             android:id="@+id/txt_kitchenId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/kitchen_user_id"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="50dp"
+                            android:text="@string/kitchen_user_id"
                             android:textColor="@color/black"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/txt_kitchenName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/name"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="90dp"
+                            android:text="@string/name"
                             android:textColor="@color/black"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/txt_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/phone_no"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="130dp"
+                            android:text="@string/phone_no"
                             android:textColor="@color/black"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
+
                         <TextView
                             android:id="@+id/txt_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/address"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="170dp"
+                            android:text="@string/address"
                             android:textColor="@color/black"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/txt_mailId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/email_id"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="210dp"
+                            android:text="@string/email_id"
                             android:textColor="@color/black"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
 
@@ -103,24 +114,36 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <Button
                             android:id="@+id/btn_remove"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:layout_weight="1"
                             android:text="@string/remove"
                             tools:ignore="ButtonStyle" />
+
                         <Button
                             android:id="@+id/btn_block"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:layout_weight="1"
                             android:text="@string/block"
+                            android:visibility="visible"
                             tools:ignore="ButtonStyle" />
+
+                        <Button
+                            android:id="@+id/btn_unblock"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_weight="1"
+                            android:text="@string/unblock"
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -131,17 +154,10 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         tools:ignore="InefficientWeight">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <Button
-                                android:id="@+id/btn_unblock"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="20dp"
-                                android:text="@string/unblock" />
-                        </RelativeLayout>
+                            android:layout_height="wrap_content"></RelativeLayout>
                     </LinearLayout>
 
                 </LinearLayout>

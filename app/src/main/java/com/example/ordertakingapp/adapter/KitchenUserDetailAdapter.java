@@ -2,6 +2,7 @@ package com.example.ordertakingapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ordertakingapp.Pojo_KitchenUserDetail;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.activity.KitchenUserDetailView;
-import com.example.ordertakingapp.activity.KitchenUserDetails;
-import com.example.ordertakingapp.activity.WaiterDetailsView;
+import com.example.ordertakingapp.response.FetchChiefListResponse;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class KitchenUserDetailAdapter extends  RecyclerView.Adapter<KitchenUserDetailAdapter.KitchenDetailHolder>{
     Context context;
-    List<Pojo_KitchenUserDetail> kitchenUserDetail;
+    List<FetchChiefListResponse.DataBean> kitchenUserDetail;
 
-    public KitchenUserDetailAdapter(Context context, List<Pojo_KitchenUserDetail> kitchenUserDetail) {
+    public KitchenUserDetailAdapter(Context context,List<FetchChiefListResponse.DataBean> kitchenUserDetail) {
         this.context = context;
         this.kitchenUserDetail = kitchenUserDetail;
     }
@@ -38,20 +40,57 @@ public class KitchenUserDetailAdapter extends  RecyclerView.Adapter<KitchenUserD
     @Override
     public void onBindViewHolder(@NonNull KitchenDetailHolder holder, int position) {
         // holder.proImg.setImageResource(waiterDetailsList.get(position).getProImg());
-        holder.txt_kitchenrNo.setText(kitchenUserDetail.get(position).getKitchenNo());
-        holder.txt_kitchenUserName.setText(kitchenUserDetail.get(position).getKitchenUserName());
-        holder.txt_orderCount.setText(kitchenUserDetail.get(position).getOrderCount());
-        holder.txt_date.setText(kitchenUserDetail.get(position).getDate());
-        holder.txt_time.setText(kitchenUserDetail.get(position).getTime());
-        holder.txt_viewMore.setText(kitchenUserDetail.get(position).getViewMore());
 
-        holder.txt_viewMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), KitchenUserDetailView.class);
-                view.getContext().startActivity(intent);
-            }
+        final FetchChiefListResponse.DataBean dataBean = kitchenUserDetail.get(position);
+
+        if (dataBean.getChef_number()!= 0) {
+
+            holder.txt_kitchenrNo.setText(""+dataBean.getChef_number());
+        }
+
+        if (dataBean.getChef_name()!= null&&!dataBean.getChef_name().isEmpty()) {
+
+            holder.txt_kitchenUserName.setText(""+dataBean.getChef_name());
+        }
+
+        if (dataBean.getChef_emailid()!= null&&!dataBean.getChef_emailid().isEmpty()) {
+
+            holder.txt_orderCount.setText(""+dataBean.getChef_emailid());
+        }
+
+
+        if (dataBean.getCreatedAt()!= null&&!dataBean.getCreatedAt().isEmpty()) {
+
+            String date = getDate(dataBean.getCreatedAt());
+
+            holder.txt_date.setText(""+ date.substring(0, date.indexOf(' ')));
+
+            holder.txt_time.setText( ""+date.substring(date.indexOf(' ') + 1));
+
+        }
+
+
+        holder.txt_viewMore.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, KitchenUserDetailView.class);
+
+            intent.putExtra("_id",dataBean.get_id());
+
+            intent.putExtra("chef_id",dataBean.getChef_number());
+
+            intent.putExtra("chef_name",dataBean.getChef_name());
+
+            intent.putExtra("chef_number",dataBean.getChef_emergency_no());
+
+            intent.putExtra("chef_addr",dataBean.getChef_address());
+
+            intent.putExtra("chef_emailid",dataBean.getChef_emailid());
+
+            intent.putExtra("status",dataBean.getChef_status());
+
+            context.startActivity(intent);
         });
+
 
     }
 
@@ -73,5 +112,28 @@ public class KitchenUserDetailAdapter extends  RecyclerView.Adapter<KitchenUserD
             txt_viewMore = itemView.findViewById(R.id.txt_viewMore);
             proImg = itemView.findViewById(R.id.profile_image);
         }
+    }
+
+    private String getDate(String ourDate)
+    {
+        try
+        {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date value = formatter.parse(ourDate);
+
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("MM-dd-yyyy HH:mm"); //this format changeable
+            dateFormatter.setTimeZone(TimeZone.getDefault());
+            ourDate = dateFormatter.format(value);
+
+            Log.w("ourDate", ourDate);
+        }
+        catch (Exception e)
+        {
+            Log.w("Exception", ""+e.getMessage());
+
+            ourDate = "00-00-0000 00:00";
+        }
+        return ourDate;
     }
 }

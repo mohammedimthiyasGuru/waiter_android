@@ -1,12 +1,5 @@
 package com.example.ordertakingapp.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,21 +13,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ordertakingapp.Pojo_Notification;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.ordertakingapp.Pojo_WaiterDetail;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
-import com.example.ordertakingapp.adapter.CategoryListAdapter;
-import com.example.ordertakingapp.adapter.NotificationAdapter;
 import com.example.ordertakingapp.adapter.WaiterDetailAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
-import com.example.ordertakingapp.request.CategoryItemListRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
-import com.example.ordertakingapp.response.CategoryListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
-import com.example.ordertakingapp.response.OverViewItemResponse;
+import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -65,7 +60,7 @@ public class WaiterDetails extends AppCompatActivity {
 
     List<FetchWaiterListResponse.DataBean> dataBeanList;
 
-    TextView txt_no_categorylist;
+    TextView txt_no_waiterlist;
 
     private Dialog alertDialog;
 
@@ -73,14 +68,16 @@ public class WaiterDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiter_details);
-        //Objects.requireNonNull(getSupportActionBar()).hide();
+      //  Objects.requireNonNull(getSupportActionBar()).hide();
 
+        Log.w("onCreate",TAG);
 
         txt_ViewMore = findViewById(R.id.txt_viewMore);
         drawerLayout = findViewById(R.id.drawer_layout);
         recycler = findViewById(R.id.waiterlist);
 
-        txt_no_categorylist = findViewById(R.id.txt_no_categorylist);
+        avi_indicator = findViewById(R.id.avi_indicator);
+        txt_no_waiterlist = findViewById(R.id.txt_no_waiterlist);
         avi_indicator = findViewById(R.id.avi_indicator);
         avi_indicator.setVisibility(View.GONE);
 
@@ -105,6 +102,9 @@ public class WaiterDetails extends AppCompatActivity {
             }
         });
 
+        if (new ConnectionDetector(getApplicationContext()).isNetworkAvailable(getApplicationContext())) {
+            getwaiterlistResponseCall();
+        }
 
     }
 
@@ -129,11 +129,12 @@ public class WaiterDetails extends AppCompatActivity {
                             dataBeanList = response.body().getData();
 
                             recycler.setVisibility(View.VISIBLE);
-                            txt_no_categorylist.setVisibility(View.GONE);
+                            txt_no_waiterlist.setVisibility(View.GONE);
                             setViewWaiterList(response.body().getData());
                         }else {
                             recycler.setVisibility(View.GONE);
-                            txt_no_categorylist.setVisibility(View.VISIBLE);
+                            txt_no_waiterlist.setVisibility(View.VISIBLE);
+                            txt_no_waiterlist.setText("No Waiters Found");
                         }
 
 
@@ -195,12 +196,6 @@ public class WaiterDetails extends AppCompatActivity {
     }
 
 
-
-    private void getList() {
-        waiterDetailsList = new ArrayList<>();
-        waiterDetailsList.add(new Pojo_WaiterDetail("012345","Mohammad","Order Count:32","19/04/2021",
-                "12:00","View More",R.drawable.prof_icon));
-    }
 
     public void ClickMenu(View view){
         openDrawer(drawerLayout);
