@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderTakingApp"
         android:usesCleartextTraffic="true"
-        tools:ignore="UnusedAttribute">
+        tools:ignore="AllowBackup,UnusedAttribute">
         <activity android:name=".activity.PaymentDetails"></activity>
         <activity android:name=".activity.OrderDetails" />
         <activity android:name=".activity.KitchenUserDetailView" />
@@ -23,7 +23,7 @@
         <activity android:name=".activity.WaiterDetails" />
         <activity android:name=".activity.NotificationDetail" />
         <activity android:name=".activity.Notification" />
-        <activity android:name=".activity.TableItemList" />
+        <activity android:name=".activity.TableItemListActivity" />
         <activity android:name=".activity.KitchenTakingActivity" />
         <activity android:name=".activity.CatagActivity" />
         <activity android:name=".activity.WaiterActivity" />

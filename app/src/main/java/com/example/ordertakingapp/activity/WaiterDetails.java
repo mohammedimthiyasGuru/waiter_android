@@ -35,7 +35,6 @@ import com.example.ordertakingapp.request.FetchWaiterListRequest;
 import com.example.ordertakingapp.response.CategoryListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.OverViewItemResponse;
-import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -66,7 +65,7 @@ public class WaiterDetails extends AppCompatActivity {
 
     List<FetchWaiterListResponse.DataBean> dataBeanList;
 
-    TextView txt_no_waiterlist;
+    TextView txt_no_categorylist;
 
     private Dialog alertDialog;
 
@@ -74,16 +73,14 @@ public class WaiterDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiter_details);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
-        Log.w("onCreate",TAG);
 
         txt_ViewMore = findViewById(R.id.txt_viewMore);
         drawerLayout = findViewById(R.id.drawer_layout);
         recycler = findViewById(R.id.waiterlist);
 
-        avi_indicator = findViewById(R.id.avi_indicator);
-        txt_no_waiterlist = findViewById(R.id.txt_no_waiterlist);
+        txt_no_categorylist = findViewById(R.id.txt_no_categorylist);
         avi_indicator = findViewById(R.id.avi_indicator);
         avi_indicator.setVisibility(View.GONE);
 
@@ -108,9 +105,6 @@ public class WaiterDetails extends AppCompatActivity {
             }
         });
 
-        if (new ConnectionDetector(getApplicationContext()).isNetworkAvailable(getApplicationContext())) {
-            getwaiterlistResponseCall();
-        }
 
     }
 
@@ -135,12 +129,11 @@ public class WaiterDetails extends AppCompatActivity {
                             dataBeanList = response.body().getData();
 
                             recycler.setVisibility(View.VISIBLE);
-                            txt_no_waiterlist.setVisibility(View.GONE);
+                            txt_no_categorylist.setVisibility(View.GONE);
                             setViewWaiterList(response.body().getData());
                         }else {
                             recycler.setVisibility(View.GONE);
-                            txt_no_waiterlist.setVisibility(View.VISIBLE);
-                            txt_no_waiterlist.setText("No Waiters Found");
+                            txt_no_categorylist.setVisibility(View.VISIBLE);
                         }
 
 
@@ -202,6 +195,12 @@ public class WaiterDetails extends AppCompatActivity {
     }
 
 
+
+    private void getList() {
+        waiterDetailsList = new ArrayList<>();
+        waiterDetailsList.add(new Pojo_WaiterDetail("012345","Mohammad","Order Count:32","19/04/2021",
+                "12:00","View More",R.drawable.prof_icon));
+    }
 
     public void ClickMenu(View view){
         openDrawer(drawerLayout);

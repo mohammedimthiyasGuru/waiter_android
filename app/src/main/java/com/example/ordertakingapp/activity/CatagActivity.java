@@ -65,7 +65,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CatagActivity extends AppCompatActivity implements View.OnClickListener, CatagListListener, AddItemListener, RemoveItemListener {
-    Button btn_add,btn_min;
+
     TextView tv_number;
     private int count;
     TextView txt_back;
@@ -99,7 +99,7 @@ public class CatagActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catag);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         back_icon = findViewById(R.id.back_icon);
         txt_no_categorylist = findViewById(R.id.txt_no_categorylist);
@@ -289,8 +289,6 @@ public class CatagActivity extends AppCompatActivity implements View.OnClickList
         });
 
     }
-
-
     private CreateOrderRequest createOrderRequest(List<CreateOrderRequest.ItemDetailBean> data) {
 
         /**

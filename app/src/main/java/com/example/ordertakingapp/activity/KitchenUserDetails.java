@@ -37,7 +37,7 @@ public class KitchenUserDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_user_details);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
         txt_ViewMore = findViewById(R.id.txt_viewMore);
         drawerLayout = findViewById(R.id.drawer_layout);
         recycler = findViewById(R.id.kitchenUserlist);

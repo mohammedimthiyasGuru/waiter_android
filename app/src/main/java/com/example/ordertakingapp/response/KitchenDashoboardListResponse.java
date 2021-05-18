@@ -4,10 +4,11 @@ import java.util.List;
 
 public class KitchenDashoboardListResponse {
 
+
     /**
      * Status : Success
      * Message : Kitchen Details
-     * Data : [{"rest_id":"1234","table_no":"1","table_name":"MK1","taken_by":"Mohammed-(1234)","order_at":"23-10-2012 01:00 AM","status":"Booked"},{"rest_id":"1234","table_no":"2","table_name":"MK2","taken_by":"Dinesh-(1234)","order_at":"23-10-2012 12:00 AM","status":"Order Accept"},{"rest_id":"1234","table_no":"3","table_name":"MK3","taken_by":"Sriram-(1234)","order_at":"23-10-2012 04:00 AM","status":"Order Delivery"},{"rest_id":"1234","table_no":"4","table_name":"MK4","taken_by":"Mohammed-(1234)","order_at":"23-10-2012 09:00 AM","status":"Booked"},{"rest_id":"1234","table_no":"5","table_name":"MK5","taken_by":"Mohammed-(1234)","order_at":"23-10-2012 10:00 AM","status":"Booked"},{"rest_id":"1234","table_no":"6","table_name":"MK6","taken_by":"Mohammed-(1234)","order_at":"23-10-2012 12:00 AM","status":"Booked"}]
+     * Data : [{"_id":"60a23587c097ea292a56ac9a","order_id":"1621243271346","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"1","table_name":"1","taken_by":"Dinesh","order_at":"17-05-2021 02:51 PM","status":"Completed","chef_status":"Completed"}]
      * Code : 200
      */
 
@@ -15,12 +16,15 @@ public class KitchenDashoboardListResponse {
     private String Message;
     private int Code;
     /**
-     * rest_id : 1234
+     * _id : 60a23587c097ea292a56ac9a
+     * order_id : 1621243271346
+     * rest_id : 6098ff1b074e747b0fcd04b5
      * table_no : 1
-     * table_name : MK1
-     * taken_by : Mohammed-(1234)
-     * order_at : 23-10-2012 01:00 AM
-     * status : Booked
+     * table_name : 1
+     * taken_by : Dinesh
+     * order_at : 17-05-2021 02:51 PM
+     * status : Completed
+     * chef_status : Completed
      */
 
     private List<DataBean> Data;
@@ -58,12 +62,31 @@ public class KitchenDashoboardListResponse {
     }
 
     public static class DataBean {
+        private String _id;
+        private String order_id;
         private String rest_id;
         private String table_no;
         private String table_name;
         private String taken_by;
         private String order_at;
         private String status;
+        private String chef_status;
+
+        public String get_id() {
+            return _id;
+        }
+
+        public void set_id(String _id) {
+            this._id = _id;
+        }
+
+        public String getOrder_id() {
+            return order_id;
+        }
+
+        public void setOrder_id(String order_id) {
+            this.order_id = order_id;
+        }
 
         public String getRest_id() {
             return rest_id;
@@ -111,6 +134,14 @@ public class KitchenDashoboardListResponse {
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public String getChef_status() {
+            return chef_status;
+        }
+
+        public void setChef_status(String chef_status) {
+            this.chef_status = chef_status;
         }
     }
 }

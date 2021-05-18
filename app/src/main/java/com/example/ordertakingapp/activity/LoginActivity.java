@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
         txt_number = findViewById(R.id.mobile_no);
         btn_login1  = findViewById(R.id.login1);
         avi_indicator = findViewById(R.id.avi_indicator);

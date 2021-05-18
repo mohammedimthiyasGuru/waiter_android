@@ -1,13 +1,13 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme"  parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/purple_700</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
         <item name="colorAccent">@color/purple_700</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-       <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowBackground">@color/purple_700</item>
+        <!--   <item name="android:windowLightStatusBar">true</item>-->
+        <item name="android:windowBackground">@color/whiteTwo</item>
 
     </style>
     <style name="NewAppTheme" parent="Theme.AppCompat.Light">

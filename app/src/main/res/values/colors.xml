@@ -9,5 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="lightgray">#efefef</color>
+    <color name="medium_green">#4caf50</color>
+    <color name="vermillion">#f52323</color>
+    <color name="whiteTwo">#ffffff</color>
+
+
 
 </resources>

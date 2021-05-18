@@ -68,7 +68,7 @@ public class WaiterActivity extends AppCompatActivity implements CheckTableAvaSt
         setContentView(R.layout.activity_waiter);
 
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String, String> user = sessionManager.getProfileDetails();

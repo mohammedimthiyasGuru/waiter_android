@@ -5,29 +5,30 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ordertakingapp.Pojo;
-import com.example.ordertakingapp.Pojo_kitchen;
 import com.example.ordertakingapp.R;
-import com.example.ordertakingapp.activity.NotificationDetail;
-import com.example.ordertakingapp.activity.TableItemList;
+import com.example.ordertakingapp.activity.TableItemListActivity;
+import com.example.ordertakingapp.interfaces.OrderListClickListener;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 
 import java.util.List;
 
 public class KitchenAdapter extends RecyclerView.Adapter<KitchenAdapter.KitchenHolder> {
 
+    private String TAG = "KitchenAdapter";
     Context context;
     List<KitchenDashoboardListResponse.DataBean> data;
+    OrderListClickListener orderListClickListener;
 
-    public KitchenAdapter(Context context, List<KitchenDashoboardListResponse.DataBean> data) {
+    public KitchenAdapter(Context context, List<KitchenDashoboardListResponse.DataBean> data, OrderListClickListener orderListClickListener) {
         this.context = context;
         this.data = data;
+        this.orderListClickListener = orderListClickListener;
     }
 
     @NonNull
@@ -45,13 +46,32 @@ public class KitchenAdapter extends RecyclerView.Adapter<KitchenAdapter.KitchenH
         holder.txt_date.setText(data.get(position).getOrder_at());
         holder.txt_status.setText(data.get(position).getStatus());
 
-     /*   holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), TableItemList.class);
-                view.getContext().startActivity(intent);
+                Intent intent = new Intent(context, TableItemListActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("id",data.get(position).get_id());
+                intent.putExtra("orderid",data.get(position).getOrder_id());
+                intent.putExtra("restid",data.get(position).getRest_id());
+                context.startActivity(intent);
             }
-        });*/
+        });
+
+        if(data.get(position).getChef_status() != null && data.get(position).getChef_status().isEmpty()){
+            holder.btn_accept.setVisibility(View.VISIBLE);
+        }else{
+            holder.btn_accept.setVisibility(View.GONE);
+        }
+
+        holder.btn_accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                orderListClickListener.orderListClickListener(data.get(position).getOrder_id());
+
+            }
+        });
 
     }
 
@@ -63,6 +83,7 @@ public class KitchenAdapter extends RecyclerView.Adapter<KitchenAdapter.KitchenH
     public static class KitchenHolder extends RecyclerView.ViewHolder {
 
         TextView txt_table_number, txt_table,txt_taken,txt_date,txt_status;
+        Button btn_accept;
 
 
         public KitchenHolder(@NonNull View itemView) {
@@ -72,6 +93,8 @@ public class KitchenAdapter extends RecyclerView.Adapter<KitchenAdapter.KitchenH
             txt_taken = itemView.findViewById(R.id.txt_taken);
             txt_date = itemView.findViewById(R.id.txt_date);
             txt_status = itemView.findViewById(R.id.txt_status);
+            btn_accept = itemView.findViewById(R.id.btn_accept);
+            btn_accept.setVisibility(View.GONE);
         }
     }
 }

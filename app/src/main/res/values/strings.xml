@@ -34,4 +34,5 @@
     <string name="_1">1</string>
     <string name="item_detail">ITEM DETAIL</string>
     <string name="norecordsfound">No Records Found</string>
+    <string name="completemsg" >Are you sure you want to complete this order ?</string>
 </resources>

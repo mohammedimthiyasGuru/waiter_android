@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.TableItemList"
+    tools:context=".activity.TableItemListActivity"
     android:background="@drawable/common_back"
     android:orientation="vertical">
 
@@ -131,18 +131,38 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Status"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="10dp"/>
+                        android:textSize="14sp" />
+
                     <TextView
                         android:id="@+id/txt_cost"
-                        android:layout_below="@+id/txt_date"
+                        android:layout_toEndOf="@+id/txt_table_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₹ 1000"
-                        android:textSize="14sp"
+                        android:layout_below="@+id/txt_status"
                         android:layout_marginEnd="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="₹ 1000"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btn_complete"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:text="Complete"
+                        android:textAllCaps="false"
+                        tools:ignore="HardcodedText"
+                        android:textSize="12sp"
+                        android:background="@drawable/button_capsule_complete"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/txt_cost"
                         android:layout_alignParentRight="true"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+
+                        />
+
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -156,79 +176,32 @@
         android:layout_below="@id/linear2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp">
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:ignore="UselessParent">
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_table_item_list"
+            android:layout_marginTop="10dp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/textview_border">
-        <LinearLayout
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/txt_norecord"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:text="Item Name"
-                android:layout_marginStart="10dp" />
-            <TextView
-                android:id="@+id/item_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="center"
-                android:text="1" />
-            <TextView
-                android:id="@+id/txt_prize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="center"
-                android:text="₹ 100" />
-
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:layout_gravity="center"
-                android:text="Order Complete" />
-
-        </LinearLayout>
-
-
-
-    </RelativeLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_gravity="bottom|right"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20sp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="30sp"
-            android:src="@drawable/check"
-            app:maxImageSize="30sp"
-            android:layout_alignParentRight="true" />
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:visibility="gone"/>
     </LinearLayout>
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/purple_700"
+        app:indicatorName="LineSpinFadeLoaderIndicator" />
 
 </RelativeLayout>

@@ -2,31 +2,31 @@ package com.example.ordertakingapp.api;
 
 import androidx.arch.core.util.Function;
 
-import com.example.ordertakingapp.request.BlockUnBlockWaiterRequest;
 import com.example.ordertakingapp.request.CategoryItemListRequest;
 import com.example.ordertakingapp.request.CreateOrderRequest;
 import com.example.ordertakingapp.request.DashboardRequest;
-import com.example.ordertakingapp.request.DeleteWaiterRequest;
 import com.example.ordertakingapp.request.FetchChiefListRequest;
+import com.example.ordertakingapp.request.FetchOrderByIdRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
 import com.example.ordertakingapp.request.ItemAddOrRemoveRequest;
 import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.OverViewItemRequest;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
-import com.example.ordertakingapp.response.BlockUnBlockWaiterResponse;
+import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
 import com.example.ordertakingapp.response.CategoryItemListResponse;
 import com.example.ordertakingapp.response.CategoryListResponse;
 import com.example.ordertakingapp.response.CreateOrderResponse;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.request.LoginRequest;
-import com.example.ordertakingapp.response.DeleteWaiterResponse;
 import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.LoginResponse;
+import com.example.ordertakingapp.response.OrderDetailsResponse;
 import com.example.ordertakingapp.response.OverViewItemResponse;
+import com.example.ordertakingapp.response.SuccessResponse;
 import com.example.ordertakingapp.response.TableAvaStatusResponse;
 import com.example.ordertakingapp.response.TableListResponse;
 
@@ -90,13 +90,21 @@ public interface RestApiInterface {
     @POST("waiter_chef/getlist_id")
     Call<FetchChiefListResponse> getcheflistResponseCall(@Header("Content-Type") String type, @Body FetchChiefListRequest fetchChiefListRequest);
 
-    /*Get Chef Details*/
-    @POST("waiter_waiter/edit")
-    Call<BlockUnBlockWaiterResponse> blockorunblockwaiterResponseCall(@Header("Content-Type") String type, @Body BlockUnBlockWaiterRequest blockUnBlockWaiterRequest);
 
-    /*Get Chef Details*/
-    @POST("waiter_waiter/delete")
-    Call<DeleteWaiterResponse> deletewaiterResponseCall(@Header("Content-Type") String type, @Body DeleteWaiterRequest deleteWaiterRequest);
+    /*update the status*/
+    @POST("waiter_order/waiter/update/accept")
+    Call<SuccessResponse> waiterUpdateAcceptResponseCall(@Header("Content-Type") String type, @Body WaiterUpdateAcceptRequest waiterUpdateAcceptRequest);
+
+
+    /*fetch order by id response call*/
+    @POST("kitchen_user_detail/fetch_order_by_id")
+    Call<OrderDetailsResponse> fetch_order_by_id_ResponseCall(@Header("Content-Type") String type, @Body FetchOrderByIdRequest fetchOrderByIdRequest);
+
+
+    /*update the status*/
+    @POST("waiter_order/waiter/update/complete")
+    Call<SuccessResponse> waiterCompleteAcceptResponseCall(@Header("Content-Type") String type, @Body WaiterUpdateAcceptRequest waiterUpdateAcceptRequest);
+
 
 
 }

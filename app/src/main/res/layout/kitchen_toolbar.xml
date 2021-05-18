@@ -43,13 +43,14 @@
 
         <ImageView
             android:id="@+id/img_notification"
-            android:layout_width="45sp"
-            android:layout_height="55sp"
+            android:layout_width="33dp"
+            android:layout_height="41dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="10sp"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/notify_icon"
-            android:layout_alignParentRight="true" />
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:src="@drawable/notify_icon" />
 
         <TextView
             android:layout_width="wrap_content"

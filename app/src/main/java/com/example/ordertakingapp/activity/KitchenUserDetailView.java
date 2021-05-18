@@ -22,7 +22,7 @@ public class KitchenUserDetailView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_user_detail_view);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         btn_remove = findViewById(R.id.btn_remove);
         btn_block = findViewById(R.id.btn_block);

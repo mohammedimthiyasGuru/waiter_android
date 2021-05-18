@@ -16,14 +16,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="15dp">
 
-        <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/avi_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            app:indicatorColor="@color/purple_700"
-            app:indicatorName="LineSpinFadeLoaderIndicator" />
-
         <include
             layout="@layout/waiter_view_toolbar"
             android:id="@+id/include_waiter_details_view"/>
@@ -100,11 +92,11 @@
                     android:id="@+id/txt_mailId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/email_id"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="210dp"
-                    android:text="@string/email_id"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"/>
 
             </RelativeLayout>
 

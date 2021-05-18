@@ -19,7 +19,7 @@ public class NotificationDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_detail);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
         txt_back = findViewById(R.id.back);
         txt_back.setOnClickListener(new View.OnClickListener() {
             @Override
