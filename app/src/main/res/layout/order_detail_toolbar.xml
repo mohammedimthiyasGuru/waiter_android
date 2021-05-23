@@ -34,17 +34,17 @@
                     android:src="@drawable/menu"
                     tools:ignore="ContentDescription" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
                     android:text="@string/order_details"
+                    android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_centerInParent="true"
-                    android:textAlignment="center"
-                    android:gravity="center_horizontal"
                     tools:ignore="RelativeOverlap" />
-
 
                 <ImageView
                     android:id="@+id/img_notification"
@@ -60,8 +60,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="19dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginEnd="19dp"
                     android:text="1"
                     android:textColor="@color/white"
                     android:textSize="10sp"

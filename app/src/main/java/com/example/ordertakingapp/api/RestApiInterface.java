@@ -8,15 +8,21 @@ import com.example.ordertakingapp.request.CategoryItemListRequest;
 import com.example.ordertakingapp.request.CreateOrderRequest;
 import com.example.ordertakingapp.request.DashboardRequest;
 import com.example.ordertakingapp.request.DeleteWaiterRequest;
+import com.example.ordertakingapp.request.FetchChefOrderHistoryRequest;
 import com.example.ordertakingapp.request.FetchChiefListRequest;
 import com.example.ordertakingapp.request.FetchOrderByIdRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
+import com.example.ordertakingapp.request.FetchWaiterOrderHistoryRequest;
 import com.example.ordertakingapp.request.ItemAddOrRemoveRequest;
+import com.example.ordertakingapp.request.KitchenAdminRequestListRequest;
 import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.OverViewItemRequest;
+import com.example.ordertakingapp.request.SoSRequest;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
+import com.example.ordertakingapp.request.WaiterAdminCreateRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
+import com.example.ordertakingapp.request.WaiterUpdateOrderConfirmtRequest;
 import com.example.ordertakingapp.response.BlockUnBlockChefResponse;
 import com.example.ordertakingapp.response.BlockUnBlockWaiterResponse;
 import com.example.ordertakingapp.response.CategoryItemListResponse;
@@ -25,19 +31,24 @@ import com.example.ordertakingapp.response.CreateOrderResponse;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.request.LoginRequest;
 import com.example.ordertakingapp.response.DeleteWaiterResponse;
+import com.example.ordertakingapp.response.DropDownCatListResponse;
 import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
+import com.example.ordertakingapp.response.KitchenAdminRequestListResponse;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.LoginResponse;
 import com.example.ordertakingapp.response.OrderDetailsResponse;
 import com.example.ordertakingapp.response.OverViewItemResponse;
+import com.example.ordertakingapp.response.SoSResponse;
 import com.example.ordertakingapp.response.SuccessResponse;
 import com.example.ordertakingapp.response.TableAvaStatusResponse;
 import com.example.ordertakingapp.response.TableListResponse;
+import com.example.ordertakingapp.response.WaiterUpdateOrderConfirmtResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
@@ -124,9 +135,38 @@ public interface RestApiInterface {
 
 
     /*update the status*/
-    @POST("waiter_order/waiter/update/complete")
+    @POST("waiter_order/chef/update/complete")
     Call<SuccessResponse> waiterCompleteAcceptResponseCall(@Header("Content-Type") String type, @Body WaiterUpdateAcceptRequest waiterUpdateAcceptRequest);
 
+    /*Get Chef Orders*/
+    @POST("waiter_order/chef/order_history")
+    Call<KitchenDashoboardListResponse> chefMyordersResponseCall(@Header("Content-Type") String type, @Body FetchChefOrderHistoryRequest fetchChefOrderHistoryRequest);
 
+    /*Get Waiter Orders*/
+    @POST("waiter_order/waiter/order_history")
+    Call<KitchenDashoboardListResponse> waiterMyordersResponseCall(@Header("Content-Type") String type, @Body FetchWaiterOrderHistoryRequest fetchWaiterOrderHistoryRequest);
+
+
+    /*waiter complete the status*/
+    @POST("waiter_order/waiter/update_status")
+    Call<WaiterUpdateOrderConfirmtResponse> waiterCompleteOrderResponseCall(@Header("Content-Type") String type, @Body WaiterUpdateOrderConfirmtRequest waiterUpdateOrderConfirmtRequest);
+
+
+    /*kitchen admin request list*/
+    @POST("waiter_adminrequest/waiter/getlist")
+    Call<KitchenAdminRequestListResponse> kitchenAdminRequestListResponse(@Header("Content-Type") String type, @Body KitchenAdminRequestListRequest kitchenAdminRequestListRequest);
+
+    /*dropdown list*/
+    @GET("waiter_adminrequest/dropdown/getlist")
+    Call<DropDownCatListResponse> dropDownListResponseCall(@Header("Content-Type") String type);
+
+    /*Create admin new request*/
+    @POST("waiter_adminrequest/create")
+    Call<SuccessResponse> waiterAdminCreateResponseCall(@Header("Content-Type") String type, @Body WaiterAdminCreateRequest waiterAdminCreateRequest);
+
+
+    /*SoS List*/
+    @POST("kitchen_user_detail/sos")
+    Call<SoSResponse> soSResponseCall(@Header("Content-Type") String type, @Body SoSRequest soSRequest);
 
 }

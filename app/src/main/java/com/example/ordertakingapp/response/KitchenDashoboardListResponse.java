@@ -7,8 +7,8 @@ public class KitchenDashoboardListResponse {
 
     /**
      * Status : Success
-     * Message : Kitchen Details
-     * Data : [{"_id":"60a23587c097ea292a56ac9a","order_id":"1621243271346","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"1","table_name":"1","taken_by":"Dinesh","order_at":"17-05-2021 02:51 PM","status":"Completed","chef_status":"Completed"}]
+     * Message : Waiter History Details
+     * Data : [{"_id":"60a5eeab785e571920ac46f7","order_id":"1621487275551","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"6","table_name":"6","taken_by":"Dinesh","order_at":"20-05-2021 10:37 AM","status":"Completed","chef_status":"Completed","waiter_status":"Booked"},{"_id":"60a5eec9785e571920ac46fa","order_id":"1621487305975","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"3","table_name":"3","taken_by":"Dinesh","order_at":"20-05-2021 10:38 AM","status":"Completed","chef_status":"Completed","waiter_status":"Completed"},{"_id":"60a5eed5785e571920ac46fe","order_id":"1621487317717","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"4","table_name":"4","taken_by":"Dinesh","order_at":"20-05-2021 10:38 AM","status":"Completed","chef_status":"Completed","waiter_status":"Booked"},{"_id":"60a5eee2785e571920ac4704","order_id":"1621487330109","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"5","table_name":"5","taken_by":"Dinesh","order_at":"20-05-2021 10:38 AM","status":"Booked","chef_status":"","waiter_status":"Completed"},{"_id":"60a5eeeb785e571920ac4708","order_id":"1621487339321","rest_id":"6098ff1b074e747b0fcd04b5","table_no":"6","table_name":"6","taken_by":"Dinesh","order_at":"20-05-2021 10:38 AM","status":"Booked","chef_status":"","waiter_status":null}]
      * Code : 200
      */
 
@@ -16,15 +16,16 @@ public class KitchenDashoboardListResponse {
     private String Message;
     private int Code;
     /**
-     * _id : 60a23587c097ea292a56ac9a
-     * order_id : 1621243271346
+     * _id : 60a5eeab785e571920ac46f7
+     * order_id : 1621487275551
      * rest_id : 6098ff1b074e747b0fcd04b5
-     * table_no : 1
-     * table_name : 1
+     * table_no : 6
+     * table_name : 6
      * taken_by : Dinesh
-     * order_at : 17-05-2021 02:51 PM
+     * order_at : 20-05-2021 10:37 AM
      * status : Completed
      * chef_status : Completed
+     * waiter_status : Booked
      */
 
     private List<DataBean> Data;
@@ -71,6 +72,7 @@ public class KitchenDashoboardListResponse {
         private String order_at;
         private String status;
         private String chef_status;
+        private String waiter_status;
 
         public String get_id() {
             return _id;
@@ -142,6 +144,14 @@ public class KitchenDashoboardListResponse {
 
         public void setChef_status(String chef_status) {
             this.chef_status = chef_status;
+        }
+
+        public String getWaiter_status() {
+            return waiter_status;
+        }
+
+        public void setWaiter_status(String waiter_status) {
+            this.waiter_status = waiter_status;
         }
     }
 }

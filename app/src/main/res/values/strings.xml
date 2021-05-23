@@ -35,4 +35,11 @@
     <string name="item_detail">ITEM DETAIL</string>
     <string name="norecordsfound">No Records Found</string>
     <string name="completemsg" >Are you sure you want to complete this order ?</string>
+    \  <string name="submit">Submit</string>
+    <string name="err_msg_category_title">Select the category title</string>
+
+
+    <string name="emergency_new">Emergency ?</string>
+    <string name="call">Call</string>
+    <string name="contact">Contact</string>
 </resources>

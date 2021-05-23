@@ -132,6 +132,19 @@ public class WaiterActivity extends AppCompatActivity implements CheckTableAvaSt
 
     }
 
+    public void ClickOrderHistory(View view){
+
+        redirectActivity(this, WaiterOrderListActivity.class);
+
+    }
+
+    public void ClickSoSRequest(View view){
+        Intent intent = new Intent(getApplicationContext(), SoSWaiterActivity.class);
+        startActivity(intent);
+
+    }
+
+
     public void ClickLogout(View view){
         logout(this);
 

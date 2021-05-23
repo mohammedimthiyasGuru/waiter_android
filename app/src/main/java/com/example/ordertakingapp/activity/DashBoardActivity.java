@@ -193,7 +193,7 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     private void orderDetails(DashBoardActivity dashBoardActivity) {
-        redirectActivity(this,OrderDetails.class);
+        redirectActivity(this,AdminOrderListActivity.class);
     }
 
     public void ClickPaymentDetails(View view){
