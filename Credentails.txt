@@ -1,0 +1,463 @@
+/**************** User Type Login Credentials *****************/
+
+http://waiter.macinc.in/#/login
+
+admin panel 
+
+waiter@gmail.com
+
+12345
+
+9876543217 -- waiter
+
+9876543214 - Chef
+
+9876543210 - admin
+
+{ 
+        "rest_id": "608f6fc9bb5e115d275c28b4",
+        "table_no": "1"
+		"waiter_id": 608f701fbb5e115d275c28b8
+}
+
+
+
+API THAT CAN BE USED: 
+
+http://54.212.108.156:3000/api/kitchen_user_detail/clear_table
+
+Clear Table Status 
+
+{ 
+        "rest_id": "608ee322350dcc3871179775",
+        "table_no": "1"
+}
+
+API TO BE CHANGE (3)
+
+API TO BE INTEGRATED:(2,4,5,6,7)
+
+/**************** waiter *******************************/
+
+1. Login API -- Already Completed
+
+_id --> waiter id
+
+rest_id --> resturant id
+
+Store in session these values user_type_id, resturant_id
+
+2. To check the Table Status -- Completed
+
+	http://54.212.108.156:3000/api/kitchen_user_detail/check_table_status
+	{ 
+			"rest_id": "608ee322350dcc3871179775",
+			"table_no": "1"
+	}
+
+   if(response==200)
+   {
+     // re-direct to category
+   }
+   
+   else
+   {
+     // alert -- Not Available
+   }
+   
+3. Categories API Change Request -- Completed
+
+http://54.212.108.156:3000/api/kitchen_user_detail/items_list
+
+
+{     
+        "rest_id": "12345",
+        "cat_id": "123455",
+        "table_no" :"1" ,
+        "waiter_id" :"123123"
+}   
+   
+4. To add an item 
+
+	http://54.212.108.156:3000/api/kitchen_user_detail/add_item
+
+
+	{ 
+			"rest_id": "608f6fc9bb5e115d275c28b4",
+			"category_id": "608f83080ce4f06a62055b59",
+			"item_id": "608fd7942392940d525dcaaa",
+			"waiter_id": "3",
+			"table_no" : "2",
+			"item_name": "Coffee",
+			"item_price": 100
+	}
+
+5. To remove an item 
+
+	http://54.212.108.156:3000/api/kitchen_user_detail/remove_item
+
+	{ 
+			"rest_id": "608f6fc9bb5e115d275c28b4",
+			"category_id": "608f83080ce4f06a62055b59",
+			"item_id": "608fd7942392940d525dcaaa",
+			"waiter_id": "3",
+			"table_no" : "2",
+			"item_name": "Coffee",
+			"item_price": 100
+	}
+
+6. Over View item 
+
+	http://54.212.108.156:3000/api/kitchen_user_detail/over_view_item
+
+	
+	{ 
+        "rest_id": "608f6fc9bb5e115d275c28b4",
+        "waiter_id": 608f701fbb5e115d275c28b8,
+		"table_no": "1"
+	}
+
+
+7. API for Place a Order (Use response from over view for item detail array)
+
+http://54.212.108.156:3000/api/kitchen_user_detail/order/create
+
+This is the API for Place a Order.
+
+{ 
+        "rest_id": "608f6fc9bb5e115d275c28b4", 
+        "table_no" : "1",
+        "taken_id" :"608f701fbb5e115d275c28b8",
+        "order_date_book" : "23-10-2021 11:00 AM",
+        "item_detail" : [{
+            "_id": "60920638ccb9375cfa41b8a2",
+            "rest_id": "608f6fc9bb5e115d275c28b4",
+            "category_id": "608f83080ce4f06a62055b59",
+            "item_id": "608fd7942392940d525dcaaa",
+            "waiter_id": "608f701fbb5e115d275c28b8",
+            "table_no": "1",
+            "item_name": "Coffee",
+            "item_price": 100,
+            "item_status": "New Booking",
+            "item_count": 1,
+            "date_of_create": "Wed May 05 2021 02:43:04 GMT+0000 (Coordinated Universal Time)",
+            "updatedAt": "2021-05-05T02:46:19.613Z",
+            "createdAt": "2021-05-05T02:43:04.362Z",
+            "__v": 0
+        },
+        {
+            "_id": "60920638ccb9375cfa41b8a2",
+            "rest_id": "608f6fc9bb5e115d275c28b4",
+            "category_id": "608f83080ce4f06a62055b59",
+            "item_id": "608fd7942392940d525dcaaa",
+            "waiter_id": "608f701fbb5e115d275c28b8",
+            "table_no": "1",
+            "item_name": "Coffee",
+            "item_price": 100,
+            "item_status": "New Booking",
+            "item_count": 2,
+            "date_of_create": "Wed May 05 2021 02:43:04 GMT+0000 (Coordinated Universal Time)",
+            "updatedAt": "2021-05-05T02:46:19.613Z",
+            "createdAt": "2021-05-05T02:43:04.362Z",
+            "__v": 0
+        },
+        {
+            "_id": "60920638ccb9375cfa41b8a2",
+            "rest_id": "608f6fc9bb5e115d275c28b4",
+            "category_id": "608f83080ce4f06a62055b59",
+            "item_id": "608fd7942392940d525dcaaa",
+            "waiter_id": "608f701fbb5e115d275c28b8",
+            "table_no": "1",
+            "item_name": "Coffee",
+            "item_price": 300,
+            "item_status": "New Booking",
+            "item_count": 2,
+            "date_of_create": "Wed May 05 2021 02:43:04 GMT+0000 (Coordinated Universal Time)",
+            "updatedAt": "2021-05-05T02:46:19.613Z",
+            "createdAt": "2021-05-05T02:43:04.362Z",
+            "__v": 0
+        }
+        ]      
+}
+
+/*********************************DATE : 17-05-2021 & 18-05-2021**************************************/
+
+Admin process work.
+
+1 .Waiter List - API Integrations 
+2. View single Waiter with details and block/remove -> API integrations 
+3 .Chef List - API Integrations 
+4. View single chef with details and block/remove -> API integrations
+
+Use this login : 9876543210
+
+8 .Waiter List - API Integrations 
+
+http://54.212.108.156:3000/api/waiter_waiter/getlist_id
+
+{ 
+        "rest_id": "608ee322350dcc3871179775"
+}
+
+{
+    "Status": "Success",
+    "Message": "Waiter List",
+    "Data": [
+        {
+            "_id": "6099001377ada17c9682975e",
+            "rest_id": {
+                "_id": "6098ff1b074e747b0fcd04b5",
+                "res_name": "Saleem RR Biriyani",
+                "log_id": "saleem@gmail.com",
+                "res_contact_no": 9876543210,
+                "res_google_link": "google.com",
+                "res_open_time": "06:00 AM",
+                "res_close_time": "10:00 PM",
+                "res_address": "Muthamil Nager ",
+                "res_person_name": "Mohammed",
+                "res_person_contact": 9876543210,
+                "res_date_of_exp": "2021-05-31",
+                "res_status": "Active",
+                "password": "12345",
+                "create_by": "Admin",
+                "updatedAt": "2021-05-10T09:38:35.556Z",
+                "createdAt": "2021-05-10T09:38:35.556Z",
+                "__v": 0
+            },
+            "waiter_name": "Santhosh",
+            "waiter_number": 9876543212,
+            "waiter_emailid": "santhosh@gmail.com",
+            "waiter_address": "Saleem",
+            "waiter_emergency_no": 9876543210,
+            "waiter_status": "true",
+            "date_of_create": "Mon May 10 2021 15:12:43 GMT+0530 (India Standard Time)",
+            "updatedAt": "2021-05-10T09:42:43.668Z",
+            "createdAt": "2021-05-10T09:42:43.668Z",
+            "__v": 0
+        },
+        {
+            "_id": "6099003577ada17c9682975f",
+            "rest_id": {
+                "_id": "6098ff1b074e747b0fcd04b5",
+                "res_name": "Saleem RR Biriyani",
+                "log_id": "saleem@gmail.com",
+                "res_contact_no": 9876543210,
+                "res_google_link": "google.com",
+                "res_open_time": "06:00 AM",
+                "res_close_time": "10:00 PM",
+                "res_address": "Muthamil Nager ",
+                "res_person_name": "Mohammed",
+                "res_person_contact": 9876543210,
+                "res_date_of_exp": "2021-05-31",
+                "res_status": "Active",
+                "password": "12345",
+                "create_by": "Admin",
+                "updatedAt": "2021-05-10T09:38:35.556Z",
+                "createdAt": "2021-05-10T09:38:35.556Z",
+                "__v": 0
+            },
+            "waiter_name": "Dinesh",
+            "waiter_number": 9876543214,
+            "waiter_emailid": "dinesh@gmail.com",
+            "waiter_address": "Trichy",
+            "waiter_emergency_no": 9876543210,
+            "waiter_status": "true",
+            "date_of_create": "Mon May 10 2021 15:13:17 GMT+0530 (India Standard Time)",
+            "updatedAt": "2021-05-10T09:43:17.923Z",
+            "createdAt": "2021-05-10T09:43:17.923Z",
+            "__v": 0
+        }
+    ],
+    "Code": 200
+}
+
+9.Chef List - API Integrations 
+
+http://54.212.108.156:3000/api/waiter_chef/getlist_id
+
+{ 
+        "rest_id": "6098ff1b074e747b0fcd04b5"
+}
+
+{
+    "Status": "Success",
+    "Message": "Chef List",
+    "Data": [
+        {
+            "_id": "609900c677ada17c96829761",
+            "rest_id": {
+                "_id": "6098ff1b074e747b0fcd04b5",
+                "res_name": "Saleem RR Biriyani",
+                "log_id": "saleem@gmail.com",
+                "res_contact_no": 9876543210,
+                "res_google_link": "google.com",
+                "res_open_time": "06:00 AM",
+                "res_close_time": "10:00 PM",
+                "res_address": "Muthamil Nager ",
+                "res_person_name": "Mohammed",
+                "res_person_contact": 9876543210,
+                "res_date_of_exp": "2021-05-31",
+                "res_status": "Active",
+                "password": "12345",
+                "create_by": "Admin",
+                "updatedAt": "2021-05-10T09:38:35.556Z",
+                "createdAt": "2021-05-10T09:38:35.556Z",
+                "__v": 0
+            },
+            "chef_name": "Imthiyas",
+            "chef_number": 9514497862,
+            "chef_emailid": "imthi@gmail.com",
+            "chef_address": "Chennai",
+            "chef_emergency_no": 9876543210,
+            "chef_status": "true",
+            "date_of_create": "Mon May 10 2021 15:15:42 GMT+0530 (India Standard Time)",
+            "updatedAt": "2021-05-10T09:45:42.847Z",
+            "createdAt": "2021-05-10T09:45:42.847Z",
+            "__v": 0
+        },
+        {
+            "_id": "609900e577ada17c96829762",
+            "rest_id": {
+                "_id": "6098ff1b074e747b0fcd04b5",
+                "res_name": "Saleem RR Biriyani",
+                "log_id": "saleem@gmail.com",
+                "res_contact_no": 9876543210,
+                "res_google_link": "google.com",
+                "res_open_time": "06:00 AM",
+                "res_close_time": "10:00 PM",
+                "res_address": "Muthamil Nager ",
+                "res_person_name": "Mohammed",
+                "res_person_contact": 9876543210,
+                "res_date_of_exp": "2021-05-31",
+                "res_status": "Active",
+                "password": "12345",
+                "create_by": "Admin",
+                "updatedAt": "2021-05-10T09:38:35.556Z",
+                "createdAt": "2021-05-10T09:38:35.556Z",
+                "__v": 0
+            },
+            "chef_name": "Iqbal",
+            "chef_number": 9789868296,
+            "chef_emailid": "iqbal@gmail.com",
+            "chef_address": "Chennai",
+            "chef_emergency_no": 9876543210,
+            "chef_status": "true",
+            "date_of_create": "Mon May 10 2021 15:16:12 GMT+0530 (India Standard Time)",
+            "updatedAt": "2021-05-10T09:46:13.183Z",
+            "createdAt": "2021-05-10T09:46:13.183Z",
+            "__v": 0
+        }
+    ],
+    "Code": 200
+}
+
+10. To block and unblock
+
+http://54.212.108.156:3000/api/waiter_chef/edit
+
+ {
+            "_id": "609900c677ada17c96829761",
+            "chef_status": "false"
+}
+
+chef
+
+http://54.212.108.156:3000/api/waiter_waiter/edit
+
+{
+            "_id": "6099001377ada17c9682975e",            
+            "waiter_status": "true"
+}
+
+http://54.212.108.156:3000/api/waiter_waiter/delete
+
+{
+            "_id": "6099001377ada17c9682975e"
+}
+
+http://54.212.108.156:3000/api/waiter_chef/delete
+
+{
+            "_id": "6099001377ada17c9682975e"
+}
+
+/**********************************DATE : 19-05-2021 & 20-05-2021 & 21-05-2021 & 23-05-2021****************************************************/
+
+11. Waiter Order history 
+
+http://54.212.108.156:3000/api/waiter_order/waiter/order_history
+
+{   
+        "waiter_id": "60a3b19a9bbb7779da13ac7f"
+}
+
+{
+    "Status": "Success",
+    "Message": "Waiter History Details",
+    "Data": [
+        {
+            "_id": "60a5eeab785e571920ac46f7",
+            "order_id": "1621487275551",
+            "rest_id": "6098ff1b074e747b0fcd04b5",
+            "table_no": "6",
+            "table_name": "6",
+            "taken_by": "Dinesh",
+            "order_at": "20-05-2021 10:37 AM",
+            "status": "Completed",
+            "chef_status": "Completed",
+            "waiter_status": "Booked"
+        },
+        {
+            "_id": "60a5eec9785e571920ac46fa",
+            "order_id": "1621487305975",
+            "rest_id": "6098f…
+
+12. Chef Order History 
+
+http://54.212.108.156:3000/api/waiter_order/chef/order_history
+
+{   
+        "chef_id": "60a3b19a9bbb7779da13ac7f"
+}
+
+{
+    "Status": "Success",
+    "Message": "Chef History Details",
+    "Data": [
+        {
+            "_id": "60a5eeab785e571920ac46f7",
+            "order_id": "1621487275551",
+            "rest_id": "6098ff1b074e747b0fcd04b5",
+            "table_no": "6",
+            "table_name": "6",
+            "taken_by": "Dinesh",
+            "order_at": "20-05-2021 10:37 AM",
+            "status": "Completed",
+            "chef_status": "Completed",
+            "waiter_status": "Booked"
+        },
+        {
+            "_id": "60a5eec9785e571920ac46fa",
+            "order_id": "1621487305975",
+            "rest_id": "6098ff1b074e747b0fcd04b5",
+            "table_no": "3",
+            "table_name": "3",
+            "taken_by": "Dinesh",
+            "order_at": "20-05-…
+			
+13. Admin Order History			
+
+14. http://54.212.108.156:3000/api/waiter_order/waiter/update_status
+
+{   
+        "order_id": "1621487305975",
+        "status" : "Completed"
+}
+
+Waiter update the status in order history
+{
+    "Status": "Success",
+    "Message": "Updated",
+    "Data": {},
+    "Code": 200
+}
