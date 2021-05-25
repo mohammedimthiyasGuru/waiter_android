@@ -58,7 +58,7 @@ public class KitchenTakingActivity extends AppCompatActivity implements OrderLis
     TextView txt_norecord;
     private String TAG = "KitchenTakingActivity";
     private SessionManager sessionManager;
-    private String restid;
+    private String restid,chefid;
     private Dialog alertDialog;
 
     @Override
@@ -69,6 +69,8 @@ public class KitchenTakingActivity extends AppCompatActivity implements OrderLis
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String, String> user = sessionManager.getProfileDetails();
         restid = user.get(SessionManager.KEY_RESTID);
+
+        chefid = user.get(SessionManager.KEY_ID);
 
       //  Objects.requireNonNull(getSupportActionBar()).hide();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -317,7 +319,7 @@ public class KitchenTakingActivity extends AppCompatActivity implements OrderLis
          * chef_id : 609900e577ada17c96829762
          */
         WaiterUpdateAcceptRequest waiterUpdateAcceptRequest = new WaiterUpdateAcceptRequest();
-        waiterUpdateAcceptRequest.setChef_id(restid);
+        waiterUpdateAcceptRequest.setChef_id(chefid);
         waiterUpdateAcceptRequest.setOrder_id(orderid);
         Log.w(TAG,"waiterUpdateAcceptRequest"+ new Gson().toJson(waiterUpdateAcceptRequest));
         return waiterUpdateAcceptRequest;
