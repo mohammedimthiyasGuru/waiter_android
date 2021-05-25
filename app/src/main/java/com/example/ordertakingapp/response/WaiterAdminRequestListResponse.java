@@ -2,13 +2,12 @@ package com.example.ordertakingapp.response;
 
 import java.util.List;
 
-public class KitchenAdminRequestListResponse {
-
+public class WaiterAdminRequestListResponse {
 
     /**
      * Status : Success
-     * Message : Chef Request list
-     * Data : [{"_id":"60ac19d76f69ee0dfc266ab7","rest_id":"6098ff1b074e747b0fcd04b5","chef_id":"60a3b19a9bbb7779da13ac7f","chef_name":"Dinesh","type":"Chef","title":"Need Food","request_text":"I need food to eat the, i am hungry","request_date":"23-10-2020 11:00 AM","response_text":"","response_date":"","date_of_create":""},{"_id":"60acd3cb68492a4567b3f52c","rest_id":"6098ff1b074e747b0fcd04b5","chef_id":"60a3b19a9bbb7779da13ac7f","chef_name":"Dinesh","type":"Chef","title":"Need Food","request_text":"I need food to eat the, i am hungry","request_date":"23-10-2020 11:00 AM","response_text":"","response_date":"","date_of_create":""}]
+     * Message : Waiter Request list
+     * Data : [{"_id":"60a661ee1b2b1a47fc670628","rest_id":"6098ff1b074e747b0fcd04b5","waiter_id":"60a3b19a9bbb7779da13ac7f","waiter_name":"Dinesh","type":"Waiter","title":"Need Food","request_text":"I need food to eat the, i am hungry","request_date":"23-10-2020 11:00 AM","response_text":"","response_date":"","date_of_create":""},{"_id":"60a662851b2b1a47fc670629","rest_id":"6098ff1b074e747b0fcd04b5","waiter_id":"60a3b19a9bbb7779da13ac7f","waiter_name":"Dinesh","type":"Waiter","title":"Need Food","request_text":"I need food to eat the, i am hungry","request_date":"23-10-2020 11:00 AM","response_text":"ok will provide you shorlt ly ","response_date":"23-10-2020 12:00 AM","date_of_create":""}]
      * Code : 200
      */
 
@@ -16,11 +15,11 @@ public class KitchenAdminRequestListResponse {
     private String Message;
     private int Code;
     /**
-     * _id : 60ac19d76f69ee0dfc266ab7
+     * _id : 60a661ee1b2b1a47fc670628
      * rest_id : 6098ff1b074e747b0fcd04b5
-     * chef_id : 60a3b19a9bbb7779da13ac7f
-     * chef_name : Dinesh
-     * type : Chef
+     * waiter_id : 60a3b19a9bbb7779da13ac7f
+     * waiter_name : Dinesh
+     * type : Waiter
      * title : Need Food
      * request_text : I need food to eat the, i am hungry
      * request_date : 23-10-2020 11:00 AM
@@ -66,8 +65,8 @@ public class KitchenAdminRequestListResponse {
     public static class DataBean {
         private String _id;
         private String rest_id;
-        private String chef_id;
-        private String chef_name;
+        private String waiter_id;
+        private String waiter_name;
         private String type;
         private String title;
         private String request_text;
@@ -92,20 +91,20 @@ public class KitchenAdminRequestListResponse {
             this.rest_id = rest_id;
         }
 
-        public String getChef_id() {
-            return chef_id;
+        public String getWaiter_id() {
+            return waiter_id;
         }
 
-        public void setChef_id(String chef_id) {
-            this.chef_id = chef_id;
+        public void setWaiter_id(String waiter_id) {
+            this.waiter_id = waiter_id;
         }
 
-        public String getChef_name() {
-            return chef_name;
+        public String getWaiter_name() {
+            return waiter_name;
         }
 
-        public void setChef_name(String chef_name) {
-            this.chef_name = chef_name;
+        public void setWaiter_name(String waiter_name) {
+            this.waiter_name = waiter_name;
         }
 
         public String getType() {

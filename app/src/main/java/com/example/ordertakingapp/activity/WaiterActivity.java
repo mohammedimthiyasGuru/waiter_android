@@ -28,11 +28,13 @@ import com.example.ordertakingapp.adapter.TableListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.interfaces.CheckTableAvaStatusListener;
+import com.example.ordertakingapp.kitchen.KitchenAdminRequestActivity;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
 import com.example.ordertakingapp.response.TableAvaStatusResponse;
 import com.example.ordertakingapp.response.TableListResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
+import com.example.ordertakingapp.waiter.WaiterAdminRequestActivity;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -147,6 +149,12 @@ public class WaiterActivity extends AppCompatActivity implements CheckTableAvaSt
 
     public void ClickLogout(View view){
         logout(this);
+
+    }
+
+    public void ClickAdminRequest(View view){
+        Intent intent = new Intent(getApplicationContext(), WaiterAdminRequestActivity.class);
+        startActivity(intent);
 
     }
 

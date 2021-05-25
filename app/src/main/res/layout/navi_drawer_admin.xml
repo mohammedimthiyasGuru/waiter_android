@@ -208,6 +208,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+            android:onClick="ClickAdminRequest"
             tools:ignore="UseCompoundDrawables">
             <ImageView
                 android:layout_width="20dp"
@@ -233,6 +234,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+            android:onClick="ClickSoSRequest"
             tools:ignore="UseCompoundDrawables">
             <ImageView
                 android:layout_width="20dp"

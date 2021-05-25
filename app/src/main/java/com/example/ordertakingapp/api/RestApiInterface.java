@@ -1,7 +1,6 @@
 package com.example.ordertakingapp.api;
 
-import androidx.arch.core.util.Function;
-
+import com.example.ordertakingapp.request.AdminRequestListRequest;
 import com.example.ordertakingapp.request.BlockUnBlockChefRequest;
 import com.example.ordertakingapp.request.BlockUnBlockWaiterRequest;
 import com.example.ordertakingapp.request.CategoryItemListRequest;
@@ -14,7 +13,9 @@ import com.example.ordertakingapp.request.FetchOrderByIdRequest;
 import com.example.ordertakingapp.request.FetchWaiterListRequest;
 import com.example.ordertakingapp.request.FetchWaiterOrderHistoryRequest;
 import com.example.ordertakingapp.request.ItemAddOrRemoveRequest;
+import com.example.ordertakingapp.request.KitchenAdminCreateRequest;
 import com.example.ordertakingapp.request.KitchenAdminRequestListRequest;
+import com.example.ordertakingapp.request.WaiterAdminRequestListRequest;
 import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.OverViewItemRequest;
 import com.example.ordertakingapp.request.SoSRequest;
@@ -23,6 +24,7 @@ import com.example.ordertakingapp.request.TableListRequest;
 import com.example.ordertakingapp.request.WaiterAdminCreateRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
 import com.example.ordertakingapp.request.WaiterUpdateOrderConfirmtRequest;
+import com.example.ordertakingapp.response.AdminRequestListResponse;
 import com.example.ordertakingapp.response.BlockUnBlockChefResponse;
 import com.example.ordertakingapp.response.BlockUnBlockWaiterResponse;
 import com.example.ordertakingapp.response.CategoryItemListResponse;
@@ -36,6 +38,7 @@ import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
 import com.example.ordertakingapp.response.KitchenAdminRequestListResponse;
+import com.example.ordertakingapp.response.WaiterAdminRequestListResponse;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.LoginResponse;
 import com.example.ordertakingapp.response.OrderDetailsResponse;
@@ -152,21 +155,32 @@ public interface RestApiInterface {
     Call<WaiterUpdateOrderConfirmtResponse> waiterCompleteOrderResponseCall(@Header("Content-Type") String type, @Body WaiterUpdateOrderConfirmtRequest waiterUpdateOrderConfirmtRequest);
 
 
-    /*kitchen admin request list*/
+    /*waiter admin request list*/
     @POST("waiter_adminrequest/waiter/getlist")
-    Call<KitchenAdminRequestListResponse> kitchenAdminRequestListResponse(@Header("Content-Type") String type, @Body KitchenAdminRequestListRequest kitchenAdminRequestListRequest);
+    Call<WaiterAdminRequestListResponse> kitchenAdminRequestListResponse(@Header("Content-Type") String type, @Body WaiterAdminRequestListRequest waiterAdminRequestListRequest);
 
     /*dropdown list*/
     @GET("waiter_adminrequest/dropdown/getlist")
     Call<DropDownCatListResponse> dropDownListResponseCall(@Header("Content-Type") String type);
 
-    /*Create admin new request*/
+    /*Create admin new request by waiter*/
     @POST("waiter_adminrequest/create")
     Call<SuccessResponse> waiterAdminCreateResponseCall(@Header("Content-Type") String type, @Body WaiterAdminCreateRequest waiterAdminCreateRequest);
 
+    /*Create admin new request by chef*/
+    @POST("waiter_adminrequest/create")
+    Call<SuccessResponse> chefAdminCreateResponseCall(@Header("Content-Type") String type, @Body KitchenAdminCreateRequest kitchenAdminCreateRequest);
 
     /*SoS List*/
     @POST("kitchen_user_detail/sos")
     Call<SoSResponse> soSResponseCall(@Header("Content-Type") String type, @Body SoSRequest soSRequest);
+
+    /*kitchen admin request list*/
+    @POST("waiter_adminrequest/chef/getlist")
+    Call<KitchenAdminRequestListResponse> chefAdminRequestListResponse(@Header("Content-Type") String type, @Body KitchenAdminRequestListRequest kitchenAdminRequestListRequest);
+
+    /*ADMIN request list*/
+    @POST("waiter_adminrequest/admin/getlist")
+    Call<AdminRequestListResponse> adminRequestListResponse(@Header("Content-Type") String type, @Body AdminRequestListRequest adminRequestListRequest);
 
 }

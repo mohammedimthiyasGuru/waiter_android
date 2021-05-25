@@ -12,18 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ordertakingapp.R;
-import com.example.ordertakingapp.response.KitchenAdminRequestListResponse;
+import com.example.ordertakingapp.response.WaiterAdminRequestListResponse;
 
 import java.util.List;
 
 
-public class KitchenAdminRequestListAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class WaiterAdminRequestListAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private  String TAG = "KitchenAdminRequestListAdapter";
+    private  String TAG = "WaiterAdminRequestListAdapter";
     private Context context;
 
-    KitchenAdminRequestListResponse.DataBean currentItem;
-    private List<KitchenAdminRequestListResponse.DataBean> kitchenAdminResponseList;
+    WaiterAdminRequestListResponse.DataBean currentItem;
+    private List<WaiterAdminRequestListResponse.DataBean> kitchenAdminResponseList;
 
 
 
@@ -31,7 +31,7 @@ public class KitchenAdminRequestListAdapter extends  RecyclerView.Adapter<Recycl
 
 
 
-    public KitchenAdminRequestListAdapter(Context context,  List<KitchenAdminRequestListResponse.DataBean> kitchenAdminResponseList) {
+    public WaiterAdminRequestListAdapter(Context context, List<WaiterAdminRequestListResponse.DataBean> kitchenAdminResponseList) {
         this.context = context;
         this.kitchenAdminResponseList = kitchenAdminResponseList;
 

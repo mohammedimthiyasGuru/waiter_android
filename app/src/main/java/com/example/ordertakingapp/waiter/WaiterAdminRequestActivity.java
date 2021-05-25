@@ -1,4 +1,4 @@
-package com.example.ordertakingapp.kitchen;
+package com.example.ordertakingapp.waiter;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,11 +17,11 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
-import com.example.ordertakingapp.adapter.ChefAdminRequestListAdapter;
+import com.example.ordertakingapp.adapter.WaiterAdminRequestListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
-import com.example.ordertakingapp.request.KitchenAdminRequestListRequest;
-import com.example.ordertakingapp.response.KitchenAdminRequestListResponse;
+import com.example.ordertakingapp.request.WaiterAdminRequestListRequest;
+import com.example.ordertakingapp.response.WaiterAdminRequestListResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -34,10 +34,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class KitchenAdminRequestActivity extends AppCompatActivity {
+public class WaiterAdminRequestActivity extends AppCompatActivity {
 
 
-    private String TAG = "KitchenAdminRequestActivity";
+    private String TAG = "WaiterAdminRequestActivity";
 
 
     TextView txt_norecord;
@@ -61,7 +61,7 @@ public class KitchenAdminRequestActivity extends AppCompatActivity {
     SessionManager session;
     String type = "",name = "",userid = "";
     private String fromactivity;
-    private List<KitchenAdminRequestListResponse.DataBean> kitchenAdminResponseList;
+    private List<WaiterAdminRequestListResponse.DataBean> kitchenAdminResponseList;
 
 
     @SuppressLint("LogNotTimber")
@@ -92,7 +92,7 @@ public class KitchenAdminRequestActivity extends AppCompatActivity {
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              startActivity(new Intent(getApplicationContext(),KitchenAdminNewRequestActivity.class));
+              startActivity(new Intent(getApplicationContext(), WaiterAdminNewRequestActivity.class));
               finish();
             }
         });
@@ -129,15 +129,15 @@ public class KitchenAdminRequestActivity extends AppCompatActivity {
         avi_indicator.setVisibility(View.VISIBLE);
         avi_indicator.smoothToShow();
         RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
-        Call<KitchenAdminRequestListResponse> call = ApiService.chefAdminRequestListResponse(RestUtils.getContentType(),kitchenAdminRequestListRequest());
-        Log.w(TAG,"KitchenAdminRequestListResponse url  :%s"+ call.request().url().toString());
+        Call<WaiterAdminRequestListResponse> call = ApiService.kitchenAdminRequestListResponse(RestUtils.getContentType(),kitchenAdminRequestListRequest());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
 
-        call.enqueue(new Callback<KitchenAdminRequestListResponse>() {
+        call.enqueue(new Callback<WaiterAdminRequestListResponse>() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(@NonNull Call<KitchenAdminRequestListResponse> call, @NonNull Response<KitchenAdminRequestListResponse> response) {
+            public void onResponse(@NonNull Call<WaiterAdminRequestListResponse> call, @NonNull Response<WaiterAdminRequestListResponse> response) {
                 avi_indicator.smoothToHide();
-                Log.w(TAG,"KitchenAdminRequestListResponse"+ "--->" + new Gson().toJson(response.body()));
+                Log.w(TAG,"NotificationGetlistResponse"+ "--->" + new Gson().toJson(response.body()));
 
 
                 if (response.body() != null) {
@@ -165,26 +165,23 @@ public class KitchenAdminRequestActivity extends AppCompatActivity {
 
             @SuppressLint("LogNotTimber")
             @Override
-            public void onFailure(@NonNull Call<KitchenAdminRequestListResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<WaiterAdminRequestListResponse> call, @NonNull Throwable t) {
                 avi_indicator.smoothToHide();
 
-                Log.w(TAG,"KitchenAdminRequestListResponse flr"+"--->" + t.getMessage());
+                Log.w(TAG,"WaiterAdminRequestListResponse flr"+"--->" + t.getMessage());
             }
         });
 
     }
     @SuppressLint("LogNotTimber")
-    private KitchenAdminRequestListRequest kitchenAdminRequestListRequest() {
-
-
+    private WaiterAdminRequestListRequest kitchenAdminRequestListRequest() {
         /*
-         * chef_id : 60a3b19a9bbb7779da13ac7f
+         * user_id : 5ee3666a5dfb34019b13c3a2
          */
-
-        KitchenAdminRequestListRequest kitchenAdminRequestListRequest = new KitchenAdminRequestListRequest();
-        kitchenAdminRequestListRequest.setChef_id(userid);
-        Log.w(TAG,"KitchenAdminRequestListRequest"+ "--->" + new Gson().toJson(kitchenAdminRequestListRequest));
-        return kitchenAdminRequestListRequest;
+        WaiterAdminRequestListRequest waiterAdminRequestListRequest = new WaiterAdminRequestListRequest();
+        waiterAdminRequestListRequest.setWaiter_id(userid);
+        Log.w(TAG,"waiterAdminRequestListRequest"+ "--->" + new Gson().toJson(waiterAdminRequestListRequest));
+        return waiterAdminRequestListRequest;
     }
 
 
@@ -204,8 +201,8 @@ public class KitchenAdminRequestActivity extends AppCompatActivity {
     private void setView() {
         rv_admin_request_list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         rv_admin_request_list.setItemAnimator(new DefaultItemAnimator());
-        ChefAdminRequestListAdapter chefAdminRequestListAdapter = new ChefAdminRequestListAdapter(getApplicationContext(), kitchenAdminResponseList);
-        rv_admin_request_list.setAdapter(chefAdminRequestListAdapter);
+        WaiterAdminRequestListAdapter waiterAdminRequestListAdapter = new WaiterAdminRequestListAdapter(getApplicationContext(), kitchenAdminResponseList);
+        rv_admin_request_list.setAdapter(waiterAdminRequestListAdapter);
 
     }
 }

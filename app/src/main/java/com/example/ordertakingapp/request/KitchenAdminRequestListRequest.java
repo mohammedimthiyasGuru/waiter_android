@@ -2,17 +2,18 @@ package com.example.ordertakingapp.request;
 
 public class KitchenAdminRequestListRequest {
 
+
     /**
-     * waiter_id : 60a3b19a9bbb7779da13ac7f
+     * chef_id : 60a3b19a9bbb7779da13ac7f
      */
 
-    private String waiter_id;
+    private String chef_id;
 
-    public String getWaiter_id() {
-        return waiter_id;
+    public String getChef_id() {
+        return chef_id;
     }
 
-    public void setWaiter_id(String waiter_id) {
-        this.waiter_id = waiter_id;
+    public void setChef_id(String chef_id) {
+        this.chef_id = chef_id;
     }
 }

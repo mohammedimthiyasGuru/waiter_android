@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +16,21 @@
         android:theme="@style/Theme.OrderTakingApp"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute">
+        <activity android:name=".activity.SoSAdminActivity"></activity>
         <activity android:name=".activity.SoSWaiterActivity"></activity>
         <activity android:name=".activity.SoSActivity"></activity>
+        <activity
+            android:name=".admin.AdminRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name=".waiter.WaiterAdminRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name=".waiter.WaiterAdminNewRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
         <activity
             android:name=".kitchen.KitchenAdminRequestActivity"
             android:screenOrientation="portrait"

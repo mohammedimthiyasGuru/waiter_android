@@ -1,4 +1,4 @@
-package com.example.ordertakingapp.kitchen;
+package com.example.ordertakingapp.waiter;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -22,9 +22,7 @@ import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
-
-
-import com.example.ordertakingapp.request.KitchenAdminCreateRequest;
+import com.example.ordertakingapp.request.WaiterAdminCreateRequest;
 import com.example.ordertakingapp.response.DropDownCatListResponse;
 import com.example.ordertakingapp.response.WaiterAdminRequestListResponse;
 import com.example.ordertakingapp.response.SuccessResponse;
@@ -43,10 +41,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class KitchenAdminNewRequestActivity extends AppCompatActivity {
+public class WaiterAdminNewRequestActivity extends AppCompatActivity {
 
 
-    private String TAG = "KitchenAdminNewRequestActivity";
+    private String TAG = "WaiterAdminNewRequestActivity";
     AVLoadingIndicatorView avi_indicator;
     TextView txt_back;
     LottieAnimationView back_icon;
@@ -64,7 +62,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
     SessionManager session;
     String type = "",name = "",userid = "";
     private String fromactivity;
-    private List<WaiterAdminRequestListResponse.DataBean> KitchenAdminCreateRequest;
+    private List<WaiterAdminRequestListResponse.DataBean> kitchenAdminResponseList;
     private List<DropDownCatListResponse.DataBean> catTypeList;
     private String strCatTitle;
     private String restid,username,usertype;
@@ -168,7 +166,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
         }
 
         if (can_proceed) {
-            if (new ConnectionDetector(KitchenAdminNewRequestActivity.this).isNetworkAvailable(KitchenAdminNewRequestActivity.this)) {
+            if (new ConnectionDetector(WaiterAdminNewRequestActivity.this).isNetworkAvailable(WaiterAdminNewRequestActivity.this)) {
                 waiterAdminCreateResponseCall();
             }
 
@@ -183,7 +181,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
 
     public boolean validdSelectCatgoryTitle() {
         if(strCatTitle.equalsIgnoreCase("Select Category Title")){
-            final AlertDialog alertDialog = new AlertDialog.Builder(KitchenAdminNewRequestActivity.this).create();
+            final AlertDialog alertDialog = new AlertDialog.Builder(WaiterAdminNewRequestActivity.this).create();
             alertDialog.setMessage(getString(R.string.err_msg_category_title));
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok",
                     (dialog, which) -> alertDialog.cancel());
@@ -201,7 +199,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
         avi_indicator.setVisibility(View.VISIBLE);
         avi_indicator.smoothToShow();
         RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
-        Call<SuccessResponse> call = ApiService.chefAdminCreateResponseCall(RestUtils.getContentType(), KitchenAdminCreateRequest());
+        Call<SuccessResponse> call = ApiService.waiterAdminCreateResponseCall(RestUtils.getContentType(),waiterAdminCreateRequest());
         Log.w(TAG,"url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<SuccessResponse>() {
@@ -236,32 +234,29 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
 
     }
     @SuppressLint("LogNotTimber")
-    private KitchenAdminCreateRequest KitchenAdminCreateRequest() {
-
+    private WaiterAdminCreateRequest waiterAdminCreateRequest() {
         /*
          * rest_id : 6098ff1b074e747b0fcd04b5
-         * chef_id : 60a3b19a9bbb7779da13ac7f
-         * chef_name : Dinesh
-         * type : Chef
+         * waiter_id : 60a3b19a9bbb7779da13ac7f
+         * waiter_name : Dinesh
+         * type : Waiter
          * title : Need Food
          * request_text : I need food to eat the, i am hungry
          * request_date : 23-10-2020 11:00 AM
          */
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
         String currentDateandTime = sdf.format(new Date());
 
-
-        KitchenAdminCreateRequest KitchenAdminCreateRequest = new KitchenAdminCreateRequest();
-        KitchenAdminCreateRequest.setRest_id(restid);
-        KitchenAdminCreateRequest.setChef_id(userid);
-        KitchenAdminCreateRequest.setChef_name(username);
-        KitchenAdminCreateRequest.setType(usertype);
-        KitchenAdminCreateRequest.setTitle(strCatTitle);
-        KitchenAdminCreateRequest.setRequest_text(edt_comment.getText().toString());
-        KitchenAdminCreateRequest.setRequest_date(currentDateandTime);
-        Log.w(TAG,"KitchenAdminCreateRequest"+ "--->" + new Gson().toJson(KitchenAdminCreateRequest));
-        return KitchenAdminCreateRequest;
+        WaiterAdminCreateRequest waiterAdminCreateRequest = new WaiterAdminCreateRequest();
+        waiterAdminCreateRequest.setRest_id(restid);
+        waiterAdminCreateRequest.setWaiter_id(userid);
+        waiterAdminCreateRequest.setWaiter_name(username);
+        waiterAdminCreateRequest.setType(usertype);
+        waiterAdminCreateRequest.setTitle(strCatTitle);
+        waiterAdminCreateRequest.setRequest_text(edt_comment.getText().toString());
+        waiterAdminCreateRequest.setRequest_date(currentDateandTime);
+        Log.w(TAG,"waiterAdminCreateRequest"+ "--->" + new Gson().toJson(waiterAdminCreateRequest));
+        return waiterAdminCreateRequest;
     }
 
 
@@ -272,7 +267,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-            startActivity(new Intent(getApplicationContext(),KitchenAdminRequestActivity.class));
+            startActivity(new Intent(getApplicationContext(), WaiterAdminRequestActivity.class));
             finish();
 
 
@@ -330,7 +325,7 @@ public class KitchenAdminNewRequestActivity extends AppCompatActivity {
             Log.w(TAG,"catTitle-->"+catTitle);
             catArrayList.add(catTitle);
 
-            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(KitchenAdminNewRequestActivity.this, R.layout.spinner_item, catArrayList);
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(WaiterAdminNewRequestActivity.this, R.layout.spinner_item, catArrayList);
             spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             spr_category_type.setAdapter(spinnerArrayAdapter);
 

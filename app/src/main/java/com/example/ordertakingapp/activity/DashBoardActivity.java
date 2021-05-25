@@ -20,8 +20,10 @@ import android.widget.TextView;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
+import com.example.ordertakingapp.admin.AdminRequestActivity;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
+import com.example.ordertakingapp.kitchen.KitchenAdminRequestActivity;
 import com.example.ordertakingapp.request.DashboardRequest;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
@@ -209,6 +211,18 @@ public class DashBoardActivity extends AppCompatActivity {
 
     public void ClickLogout(View view){
         logout(this);
+
+    }
+
+    public void ClickAdminRequest(View view){
+        Intent intent = new Intent(getApplicationContext(), AdminRequestActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void ClickSoSRequest(View view){
+        Intent intent = new Intent(getApplicationContext(), SoSAdminActivity.class);
+        startActivity(intent);
 
     }
 
