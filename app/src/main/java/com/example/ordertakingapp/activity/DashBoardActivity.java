@@ -21,6 +21,7 @@ import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
 import com.example.ordertakingapp.admin.AdminRequestActivity;
+import com.example.ordertakingapp.admin.TableListActivity;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.request.DashboardRequest;
@@ -237,6 +238,12 @@ public class DashBoardActivity extends AppCompatActivity {
 
     public void ClickSoSRequest(View view){
         Intent intent = new Intent(getApplicationContext(), SoSAdminActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void ClickTablelist(View view){
+        Intent intent = new Intent(getApplicationContext(), TableListActivity.class);
         startActivity(intent);
 
     }

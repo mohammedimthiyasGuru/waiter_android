@@ -34,6 +34,7 @@ import com.example.ordertakingapp.response.TableAvaStatusResponse;
 import com.example.ordertakingapp.response.TableListResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.example.ordertakingapp.waiter.WaiterAdminRequestActivity;
+import com.example.ordertakingapp.waiter.WaiterNotificationActivity;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -88,7 +89,7 @@ public class WaiterActivity extends AppCompatActivity implements CheckTableAvaSt
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+                startActivity(new Intent(getApplicationContext(), WaiterNotificationActivity.class));
 
 
             }

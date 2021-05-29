@@ -27,6 +27,7 @@ import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.interfaces.OrderListClickListener;
 import com.example.ordertakingapp.kitchen.KitchenAdminRequestActivity;
+import com.example.ordertakingapp.kitchen.KitchenNotificationActivity;
 import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
@@ -86,7 +87,7 @@ public class KitchenTakingActivity extends AppCompatActivity implements OrderLis
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+                startActivity(new Intent(getApplicationContext(), KitchenNotificationActivity.class));
 
             }
         });
