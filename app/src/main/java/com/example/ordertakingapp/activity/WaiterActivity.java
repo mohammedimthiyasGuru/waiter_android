@@ -28,7 +28,6 @@ import com.example.ordertakingapp.adapter.TableListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.interfaces.CheckTableAvaStatusListener;
-import com.example.ordertakingapp.kitchen.KitchenAdminRequestActivity;
 import com.example.ordertakingapp.request.TableAvaStatusRequest;
 import com.example.ordertakingapp.request.TableListRequest;
 import com.example.ordertakingapp.response.TableAvaStatusResponse;
@@ -40,7 +39,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -90,7 +88,7 @@ public class WaiterActivity extends AppCompatActivity implements CheckTableAvaSt
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
 
             }

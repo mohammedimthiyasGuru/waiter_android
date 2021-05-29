@@ -16,13 +16,10 @@ import android.widget.ImageView;
 
 import com.example.ordertakingapp.PaymentAdapter;
 import com.example.ordertakingapp.Pojo_PaymentDetails;
-import com.example.ordertakingapp.Pojo_WaiterDetail;
 import com.example.ordertakingapp.R;
-import com.example.ordertakingapp.adapter.WaiterDetailAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class PaymentDetails extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -52,7 +49,7 @@ public class PaymentDetails extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });

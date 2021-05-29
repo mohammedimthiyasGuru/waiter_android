@@ -14,15 +14,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.ordertakingapp.Pojo_WaiterDetail;
 import com.example.ordertakingapp.adapter.OrderDetailAdapter;
 import com.example.ordertakingapp.Pojo_OrderDetail;
 import com.example.ordertakingapp.R;
-import com.example.ordertakingapp.adapter.WaiterDetailAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class OrderDetails extends AppCompatActivity {
 
@@ -53,7 +50,7 @@ public class OrderDetails extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });

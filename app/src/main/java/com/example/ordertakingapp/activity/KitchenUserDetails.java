@@ -36,7 +36,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -98,7 +97,7 @@ public class KitchenUserDetails extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });

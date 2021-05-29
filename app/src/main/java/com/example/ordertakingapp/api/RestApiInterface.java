@@ -15,6 +15,8 @@ import com.example.ordertakingapp.request.FetchWaiterOrderHistoryRequest;
 import com.example.ordertakingapp.request.ItemAddOrRemoveRequest;
 import com.example.ordertakingapp.request.KitchenAdminCreateRequest;
 import com.example.ordertakingapp.request.KitchenAdminRequestListRequest;
+import com.example.ordertakingapp.request.NotificationListRequest;
+import com.example.ordertakingapp.request.NotificationMarkReadRequest;
 import com.example.ordertakingapp.request.WaiterAdminRequestListRequest;
 import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.OverViewItemRequest;
@@ -38,6 +40,7 @@ import com.example.ordertakingapp.response.FetchChiefListResponse;
 import com.example.ordertakingapp.response.FetchWaiterListResponse;
 import com.example.ordertakingapp.response.ItemAddOrRemoveResponse;
 import com.example.ordertakingapp.response.KitchenAdminRequestListResponse;
+import com.example.ordertakingapp.response.NotificationListResponse;
 import com.example.ordertakingapp.response.WaiterAdminRequestListResponse;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.LoginResponse;
@@ -182,5 +185,14 @@ public interface RestApiInterface {
     /*ADMIN request list*/
     @POST("waiter_adminrequest/admin/getlist")
     Call<AdminRequestListResponse> adminRequestListResponse(@Header("Content-Type") String type, @Body AdminRequestListRequest adminRequestListRequest);
+
+
+    /*Get notifications list*/
+    @POST("waiter_notification/user/getlist_id")
+    Call<NotificationListResponse> notificationListResponseCall(@Header("Content-Type") String type, @Body NotificationListRequest notificationListRequest);
+
+     /*mark read notifications*/
+    @POST("waiter_notification/markread")
+    Call<SuccessResponse> markreadResponseCall(@Header("Content-Type") String type, @Body NotificationMarkReadRequest notificationMarkReadRequest);
 
 }

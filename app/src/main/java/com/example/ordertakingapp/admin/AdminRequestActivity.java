@@ -1,7 +1,7 @@
 package com.example.ordertakingapp.admin;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,12 +18,9 @@ import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
 import com.example.ordertakingapp.adapter.AdminRequestListAdapter;
-import com.example.ordertakingapp.adapter.ChefAdminRequestListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
-import com.example.ordertakingapp.kitchen.KitchenAdminNewRequestActivity;
 import com.example.ordertakingapp.request.AdminRequestListRequest;
-import com.example.ordertakingapp.request.KitchenAdminRequestListRequest;
 import com.example.ordertakingapp.response.AdminRequestListResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -112,7 +109,7 @@ public class AdminRequestActivity extends AppCompatActivity {
 
 
         if (new ConnectionDetector(getApplicationContext()).isNetworkAvailable(getApplicationContext())) {
-            notificationGetlistResponseCall();
+            adminRequestListResponse();
         }
     }
 
@@ -123,7 +120,7 @@ public class AdminRequestActivity extends AppCompatActivity {
     }
 
     @SuppressLint("LogNotTimber")
-    private void notificationGetlistResponseCall() {
+    private void adminRequestListResponse() {
         avi_indicator.setVisibility(View.VISIBLE);
         avi_indicator.smoothToShow();
         RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);

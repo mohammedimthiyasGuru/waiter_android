@@ -23,14 +23,13 @@ import com.example.ordertakingapp.SessionManager.SessionManager;
 import com.example.ordertakingapp.admin.AdminRequestActivity;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
-import com.example.ordertakingapp.kitchen.KitchenAdminRequestActivity;
 import com.example.ordertakingapp.request.DashboardRequest;
 import com.example.ordertakingapp.response.DashboardResponse;
 import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import java.util.Objects;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +43,7 @@ public class DashBoardActivity extends AppCompatActivity {
     TextView txt_userCount,txt_itemCount,txt_orderCount,txt_notifiCount,txt_totalCount,txt_tableCount;
 
     DrawerLayout drawerLayout;
-    private String TAG = "DashBoard";
+    private String TAG = "DashBoardActivity";
 
     AVLoadingIndicatorView avi_indicator;
     private Dialog alertDialog;
@@ -54,6 +53,15 @@ public class DashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
         //Objects.requireNonNull(getSupportActionBar()).hide();
+
+        SessionManager session = new SessionManager(getApplicationContext());
+        HashMap<String, String> user = session.getProfileDetails();
+        String type = user.get(SessionManager.KEY_TYPE);
+        String userid = user.get(SessionManager.KEY_ID);
+        String restid = user.get(SessionManager.KEY_RESTID);
+
+
+        Log.w(TAG,"session--->"+"type :"+type+" "+"userid :"+" "+userid+" restid : "+restid);
 
         avi_indicator = findViewById(R.id.avi_indicator);
         avi_indicator.setVisibility(View.GONE);
@@ -83,7 +91,7 @@ public class DashBoardActivity extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });
@@ -174,8 +182,15 @@ public class DashBoardActivity extends AppCompatActivity {
         redirectActivity(this,DashBoardActivity.class);
     }
     public void ClickWaiterDetails(View view){
-
         waiterDetails(this);
+    }
+
+    public void ClickNotifications(View view){
+          notificationDetails(view);
+    }
+
+    private void notificationDetails(View view) {
+        redirectActivity(this,NotificationActivity.class);
     }
 
     private void waiterDetails(DashBoardActivity dashBoardActivity) {

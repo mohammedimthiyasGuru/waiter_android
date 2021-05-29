@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
@@ -38,7 +37,6 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -88,7 +86,7 @@ public class KitchenTakingActivity extends AppCompatActivity implements OrderLis
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });

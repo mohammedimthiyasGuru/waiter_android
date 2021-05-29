@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.example.ordertakingapp.R;
 
-import java.util.Objects;
-
 public class NotificationDetail extends AppCompatActivity {
 
     TextView txt_back;
@@ -25,7 +23,7 @@ public class NotificationDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(),Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
                 finish();
 
             }

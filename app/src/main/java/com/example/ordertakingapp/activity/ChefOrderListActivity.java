@@ -22,15 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
-import com.example.ordertakingapp.adapter.AdminOrderListAdapter;
 import com.example.ordertakingapp.adapter.ChefOrderListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.interfaces.OrderListClickListener;
 import com.example.ordertakingapp.request.FetchChefOrderHistoryRequest;
-import com.example.ordertakingapp.request.FetchChiefListRequest;
-import com.example.ordertakingapp.request.FetchWaiterOrderHistoryRequest;
-import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.SuccessResponse;
@@ -88,7 +84,7 @@ public class ChefOrderListActivity extends AppCompatActivity implements OrderLis
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
             }
         });

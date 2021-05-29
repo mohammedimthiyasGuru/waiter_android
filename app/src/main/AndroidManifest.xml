@@ -52,7 +52,7 @@
         <activity android:name=".activity.WaiterDetailsView" />
         <activity android:name=".activity.WaiterDetails" />
         <activity android:name=".activity.NotificationDetail" />
-        <activity android:name=".activity.Notification" />
+        <activity android:name=".activity.NotificationActivity" />
         <activity android:name=".activity.TableItemListActivity" />
         <activity android:name=".activity.KitchenTakingActivity" />
         <activity android:name=".activity.CatagActivity" />

@@ -22,13 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
 import com.example.ordertakingapp.SessionManager.SessionManager;
-import com.example.ordertakingapp.adapter.KitchenAdapter;
 import com.example.ordertakingapp.adapter.WaiterOrderListAdapter;
 import com.example.ordertakingapp.api.APIClient;
 import com.example.ordertakingapp.api.RestApiInterface;
 import com.example.ordertakingapp.interfaces.OrderListClickListener;
 import com.example.ordertakingapp.request.FetchWaiterOrderHistoryRequest;
-import com.example.ordertakingapp.request.KitchenDashoboardListRequest;
 import com.example.ordertakingapp.request.WaiterUpdateAcceptRequest;
 import com.example.ordertakingapp.response.KitchenDashoboardListResponse;
 import com.example.ordertakingapp.response.SuccessResponse;
@@ -89,7 +87,7 @@ public class WaiterOrderListActivity extends AppCompatActivity implements OrderL
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Notification.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
 
 
             }
