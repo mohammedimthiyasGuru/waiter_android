@@ -461,15 +461,3 @@ Waiter update the status in order history
     "Data": {},
     "Code": 200
 }
-
-/**********************************DATE : 25-05-2021****************************************************/
-
-15. Waiter(Response Change) Duplicate --> Chef and Admin Create New Request and List Request
-
-16. Chef Duplicate --> SOS Inegration n Waiter and Admin
-
-/**********************************DATE : 29-05-2021****************************************************/
-
-17. Table List in Admin Duplicate --> from Waiter
-
-18. Notification process Duplicate in Waiter and Chef

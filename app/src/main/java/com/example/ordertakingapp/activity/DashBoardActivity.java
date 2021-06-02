@@ -49,6 +49,8 @@ public class DashBoardActivity extends AppCompatActivity {
     AVLoadingIndicatorView avi_indicator;
     private Dialog alertDialog;
 
+    String type, userid, restid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +59,9 @@ public class DashBoardActivity extends AppCompatActivity {
 
         SessionManager session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getProfileDetails();
-        String type = user.get(SessionManager.KEY_TYPE);
-        String userid = user.get(SessionManager.KEY_ID);
-        String restid = user.get(SessionManager.KEY_RESTID);
+        type = user.get(SessionManager.KEY_TYPE);
+        userid = user.get(SessionManager.KEY_ID);
+        restid = user.get(SessionManager.KEY_RESTID);
 
 
         Log.w(TAG,"session--->"+"type :"+type+" "+"userid :"+" "+userid+" restid : "+restid);
@@ -115,7 +117,7 @@ public class DashBoardActivity extends AppCompatActivity {
                if (response.body() != null) {
                    if ( 200 == response.body().getCode()){
 
-                       Log.w(TAG,"dashboardResponseCall " + new Gson().toJson(response.body()));
+
 
                        if(response.body().getData() != null){
                            txt_userCount.setText(""+response.body().getData().getUser_count());
@@ -144,8 +146,17 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     private DashboardRequest dashboardRequest() {
+
         DashboardRequest dashboardRequest = new DashboardRequest();
+
+        dashboardRequest.setRest_id(restid);
+
+        Log.w(TAG,"DashboardRequest"+ new Gson().toJson(dashboardRequest));
+
         return dashboardRequest;
+
+
+
     }
 
     public void ClickMenu(View view){

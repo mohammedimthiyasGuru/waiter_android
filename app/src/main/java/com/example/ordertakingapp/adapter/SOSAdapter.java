@@ -61,6 +61,8 @@ public class SOSAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> {
           currentItem = sosList.get(position);
           holder.txt_phn_num.setText(sosList.get(position).getNumber()+"");
 
+          holder.txt_contact.setText(sosList.get(position).getName());
+
 
         holder.ll_root.setOnClickListener(new View.OnClickListener() {
             @Override

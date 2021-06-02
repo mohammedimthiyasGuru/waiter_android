@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.ordertakingapp.R;
 import com.example.ordertakingapp.RestUtils;
+import com.example.ordertakingapp.SessionManager.SessionManager;
 import com.example.ordertakingapp.adapter.ChefOrderDetailListAdapter;
 import com.example.ordertakingapp.adapter.TableItemListAdapter;
 import com.example.ordertakingapp.api.APIClient;
@@ -33,6 +34,7 @@ import com.example.ordertakingapp.utils.ConnectionDetector;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,13 +52,15 @@ public class ChefOrderDetailListActivity extends AppCompatActivity implements Vi
 
 
 
-    String id,orderid,restid;
+    String id,orderid,restid,chefid;
     AVLoadingIndicatorView avi_indicator;
 
     RecyclerView rv_table_item_list;
     TextView txt_norecord;
     Button btn_complete;
     private Dialog dialog;
+
+    private SessionManager sessionManager;
 
     LottieAnimationView lottieAnimationView;
     @Override
@@ -68,6 +72,12 @@ public class ChefOrderDetailListActivity extends AppCompatActivity implements Vi
 
         avi_indicator = findViewById(R.id.avi_indicator);
         avi_indicator.setVisibility(View.GONE);
+
+
+        sessionManager = new SessionManager(getApplicationContext());
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        chefid = user.get(SessionManager.KEY_ID);
 
         btn_complete = findViewById(R.id.btn_complete);
         rv_table_item_list = findViewById(R.id.rv_table_item_list);
@@ -260,7 +270,7 @@ public class ChefOrderDetailListActivity extends AppCompatActivity implements Vi
          * chef_id : 609900e577ada17c96829762
          */
         WaiterUpdateAcceptRequest waiterUpdateAcceptRequest = new WaiterUpdateAcceptRequest();
-        waiterUpdateAcceptRequest.setChef_id(restid);
+        waiterUpdateAcceptRequest.setChef_id(chefid);
         waiterUpdateAcceptRequest.setOrder_id(orderid);
         Log.w(TAG,"waiterUpdateAcceptRequest"+ new Gson().toJson(waiterUpdateAcceptRequest));
         return waiterUpdateAcceptRequest;
