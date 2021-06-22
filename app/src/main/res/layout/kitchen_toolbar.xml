@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kitchen Taking"
+        android:text="Kitchen Dashboard"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_centerInParent="true"
@@ -42,22 +42,18 @@
 
 
         <ImageView
-            android:id="@+id/img_notification"
-            android:layout_width="33dp"
-            android:layout_height="41dp"
+            android:id="@+id/img_refresh"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="22dp"
-            android:layout_marginRight="22dp"
-            android:src="@drawable/notify_icon" />
+            android:background="@drawable/ic_refresh" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="19sp"
             android:layout_marginTop="10sp"
             android:text="1"
             android:textColor="@color/white"

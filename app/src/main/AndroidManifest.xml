@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ordertakingapp">
+    package="com.waiter.ordertaking">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,54 +16,8 @@
         android:theme="@style/Theme.OrderTakingApp"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute">
-        <activity android:name=".activity.SoSAdminActivity"></activity>
-        <activity android:name=".activity.SoSWaiterActivity"></activity>
-        <activity android:name=".activity.SoSActivity"></activity>
         <activity
-            android:name=".admin.AdminRequestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OrderTakingApp" />
-        <activity
-            android:name=".waiter.WaiterAdminRequestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OrderTakingApp" />
-        <activity
-            android:name=".waiter.WaiterAdminNewRequestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OrderTakingApp" />
-        <activity
-            android:name=".kitchen.KitchenAdminRequestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OrderTakingApp" />
-        <activity
-            android:name=".kitchen.KitchenAdminNewRequestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OrderTakingApp" />
-        <activity android:name=".activity.PaymentDetails"></activity>
-        <activity android:name=".activity.OrderDetails" />
-        <activity android:name=".activity.KitchenUserDetailView" />
-        <activity android:name=".activity.KitchenUserDetails" />
-        <activity android:name=".activity.AdminOrderDetailListActivity" />
-        <activity android:name=".activity.AdminOrderListActivity" />
-        <activity android:name=".activity.ChefOrderDetailListActivity" />
-        <activity android:name=".activity.ChefOrderListActivity" />
-        <activity android:name=".admin.TableListActivity" />
-        <activity android:name=".activity.WaiterOrderDetailListActivity" />
-        <activity android:name=".activity.WaiterOrderListActivity" />
-        <activity android:name=".activity.WaiterDetailsView" />
-        <activity android:name=".activity.WaiterDetails" />
-        <activity android:name=".activity.NotificationDetail" />
-        <activity android:name=".activity.NotificationActivity" />
-        <activity android:name=".kitchen.KitchenNotificationActivity" />
-        <activity android:name=".waiter.WaiterNotificationActivity" />
-        <activity android:name=".activity.TableItemListActivity" />
-        <activity android:name=".activity.KitchenTakingActivity" />
-        <activity android:name=".activity.CatagActivity" />
-        <activity android:name=".activity.WaiterActivity" />
-        <activity android:name=".activity.DashBoardActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.waiter.ordertaking.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
@@ -73,6 +27,133 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.waiter.ordertaking.admin.AdminRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name="com.waiter.ordertaking.waiter.WaiterAdminRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name="com.waiter.ordertaking.waiter.WaiterAdminNewRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name="com.waiter.ordertaking.kitchen.KitchenAdminRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+        <activity
+            android:name="com.waiter.ordertaking.kitchen.KitchenAdminNewRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.SoSAdminActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.SoSWaiterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.SoSActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.PaymentDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.OrderDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.KitchenUserDetailView"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.KitchenUserDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.AdminOrderDetailListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.AdminOrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.ChefOrderDetailListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.ChefOrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.admin.TableListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.WaiterOrderDetailListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.WaiterOrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.WaiterDetailsView"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.WaiterDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.NotificationDetail"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.NotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.kitchen.KitchenNotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.waiter.WaiterNotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.TableItemListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.KitchenTakingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.CatagActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.WaiterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.DashBoardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+        <activity android:name="com.waiter.ordertaking.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.OrderTakingApp" />
+
+
     </application>
 
 </manifest>

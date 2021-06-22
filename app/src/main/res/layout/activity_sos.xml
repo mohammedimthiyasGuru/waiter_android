@@ -4,28 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/round_corner">
+    android:background="@drawable/common_back">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/white"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_close"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_gravity="end"
-            android:layout_margin="5dp"
-            android:background="@drawable/ic_close"
-            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UselessParent">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/back_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10sp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_colorFilter="@color/purple_500"
+                    app:lottie_fileName="back-icon.json"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/sos"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/img_refresh"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_refresh" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/img_sos"
@@ -44,36 +82,31 @@
             android:textColor="@color/new_txt_color"
             android:textSize="16sp" />
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sosnumbers"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="visible" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_sosnumbers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                />
-
-            <TextView
-                android:id="@+id/txt_no_records"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/norecordsfound"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:visibility="gone"
-                />
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="end"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_close"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
 
         <Button
             android:id="@+id/btn_call"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/new_rounded_corner_btn"
             android:text="@string/call"
             android:textAllCaps="false"
@@ -81,6 +114,18 @@
             android:textSize="18sp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_no_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/norecordsfound"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:visibility="gone" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi_indicator"

@@ -47,13 +47,13 @@
 
 
                 <ImageView
-                    android:id="@+id/img_notification"
-                    android:layout_width="45dp"
-                    android:layout_height="55dp"
+                    android:id="@+id/img_refresh"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="10dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/notify_icon"
+                    android:background="@drawable/ic_refresh"
                     tools:ignore="ContentDescription" />
 
                 <TextView

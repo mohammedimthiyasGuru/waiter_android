@@ -171,7 +171,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            tools:ignore="UseCompoundDrawables">
+            tools:ignore="UseCompoundDrawables"
+            android:onClick="ClickNotifications">
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"

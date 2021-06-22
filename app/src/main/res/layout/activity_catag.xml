@@ -40,7 +40,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
             android:textColor="@color/white"
-            android:text="@string/back"
+            android:text="Item Details"
             tools:ignore="RelativeOverlap" />
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -54,7 +54,8 @@
                 app:civ_border_overlay="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
-                tools:ignore="ObsoleteLayoutParam" />
+                tools:ignore="ObsoleteLayoutParam"
+                android:visibility="gone"/>
 </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -129,7 +130,19 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_marginTop="40dp"
+                android:id="@+id/txt_no_itemlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="@string/no_data_found"
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"

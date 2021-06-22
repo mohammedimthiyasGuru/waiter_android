@@ -52,7 +52,7 @@
                             android:id="@+id/txt_user"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="User"
+                            android:text="Waiter"
                             android:textStyle="italic"
                             android:gravity="center"
                             android:textSize="20sp"/>
@@ -180,7 +180,7 @@
                             android:id="@+id/txt_notification"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Notification"
+                            android:text="Chef"
                             android:gravity="center"
                             android:textStyle="italic"
                             android:textSize="20sp"/>
@@ -227,7 +227,7 @@
                             android:id="@+id/txt_totalSale"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Total sale"
+                            android:text="Total sales"
                             android:gravity="center"
                             android:textStyle="italic"
                             android:textSize="20sp"/>
